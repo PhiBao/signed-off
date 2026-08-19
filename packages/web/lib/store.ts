@@ -24,6 +24,11 @@ export interface BundleMedia {
   readonly caption: string;
 }
 
+export interface BundleObservation {
+  readonly label: string;
+  readonly value: string;
+}
+
 export interface BundlePromise {
   readonly id: string;
   readonly text: string;
@@ -32,7 +37,7 @@ export interface BundlePromise {
   readonly quote?: string;
   readonly groupTitle: string;
   readonly strength: 'asserted' | 'observed';
-  readonly observed: readonly string[];
+  readonly observed: readonly BundleObservation[];
   readonly media: readonly BundleMedia[];
 }
 

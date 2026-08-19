@@ -130,19 +130,30 @@ export async function runKane(args: readonly string[], options: KaneOptions): Pr
       });
     }
 
-    child.on('close', (code, signal) => {
+    child.on('exit', (code, signal) => {
+      // Deliberately `exit`, not `close`.
+      //
+      // kane-cli launches Chrome as a DETACHED process that outlives the CLI,
+      // and Chrome inherits the stdio pipes. `close` waits for every writer to
+      // release them, so it can hang long after kane-cli itself has finished —
+      // which meant `verify` never returned. `exit` fires when kane-cli exits;
+      // a short grace period lets the last stdout lines drain first.
       if (settled) return;
-      settled = true;
-      clearTimeout(timer);
-      resolve({
-        // A killed process reports as a timeout, matching Kane's own semantics.
-        exitCode: signal !== null ? KaneExit.Timeout : (code ?? KaneExit.Error),
-        events,
-        creditsUsed,
-        warnings,
-        stderr,
-        stdout: stdoutText,
-      });
+      const finish = () => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        resolve({
+          // A killed process reports as a timeout, matching Kane's semantics.
+          exitCode: signal !== null ? KaneExit.Timeout : (code ?? KaneExit.Error),
+          events,
+          creditsUsed,
+          warnings,
+          stderr,
+          stdout: stdoutText,
+        });
+      };
+      setTimeout(finish, 250);
     });
   });
 }

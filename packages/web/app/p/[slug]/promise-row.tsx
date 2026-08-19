@@ -61,12 +61,6 @@ export function PromiseRow({ promise }: { promise: BundlePromise }) {
             <p className="mt-2 text-sm text-muted leading-relaxed">{promise.why}</p>
           )}
 
-          {promise.quote !== undefined && (
-            <p className="mt-3 text-sm text-muted border-l-2 border-line pl-3 italic">
-              From what you asked for: &ldquo;{promise.quote}&rdquo;
-            </p>
-          )}
-
           {hasEvidence && (
             <details className="mt-3 group">
               <summary className="text-sm underline decoration-line hover:decoration-ink inline-flex items-center gap-1.5">
@@ -82,13 +76,17 @@ export function PromiseRow({ promise }: { promise: BundlePromise }) {
                     <h3 className="text-xs uppercase tracking-wide text-muted mb-1.5">
                       What the browser saw
                     </h3>
-                    <ul className="grid gap-1">
-                      {promise.observed.map((line) => (
+                    <ul className="grid gap-1.5">
+                      {promise.observed.map((entry) => (
                         <li
-                          key={line}
-                          className="text-sm font-mono bg-paper border border-line rounded-md px-2.5 py-1.5 break-words"
+                          key={`${entry.label}-${entry.value}`}
+                          className="text-sm bg-paper border border-line rounded-md px-2.5 py-2 break-words"
                         >
-                          {line}
+                          <span className="text-muted">{entry.label}</span>
+                          <span className="mx-1.5 text-line" aria-hidden>
+                            |
+                          </span>
+                          <span className="font-mono">{entry.value}</span>
                         </li>
                       ))}
                     </ul>

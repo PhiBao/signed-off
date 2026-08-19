@@ -109,16 +109,28 @@ export default async function HandoverPage({ params }: PageProps) {
         </section>
       )}
 
-      {groups.map((group) => (
-        <section key={group.title} className="mt-9">
-          <h2 className="font-display text-lg mb-1">{group.title}</h2>
-          <ul>
-            {group.promises.map((promise) => (
-              <PromiseRow key={promise.id} promise={promise} />
-            ))}
-          </ul>
-        </section>
-      ))}
+      {groups.map((group) => {
+        // The contract quote belongs to the group, not to each promise: Kane
+        // derives a whole use-case from a line range, so repeating it on every
+        // row implied a precision that was not there.
+        const quote = group.promises.find((p) => p.quote !== undefined)?.quote;
+
+        return (
+          <section key={group.title} className="mt-9">
+            <h2 className="font-display text-lg">{group.title}</h2>
+            {quote !== undefined && (
+              <p className="mt-1.5 mb-1 text-sm text-muted border-l-2 border-line pl-3 italic">
+                You asked for: &ldquo;{quote}&rdquo;
+              </p>
+            )}
+            <ul>
+              {group.promises.map((promise) => (
+                <PromiseRow key={promise.id} promise={promise} />
+              ))}
+            </ul>
+          </section>
+        );
+      })}
 
       <SignOffForm
         slug={bundle.slug}

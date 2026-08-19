@@ -17,3 +17,5 @@ out/
 # Kane session scratch. NOTE: `output-*/` and `.context/` ARE committed on
 # purpose — that is how replay recordings and the assurance graph travel.
 .testmuai/sessions/
+packages/web/data/signoffs/
+packages/web/public/handover/

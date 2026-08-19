@@ -28,6 +28,13 @@ export interface BundleMedia {
   readonly caption: string;
 }
 
+export interface BundleObservation {
+  /** What was being read, in plain words. */
+  readonly label: string;
+  /** What it read. */
+  readonly value: string;
+}
+
 export interface BundlePromise {
   readonly id: string;
   /** The promise, in the client's own words. */
@@ -41,7 +48,7 @@ export interface BundlePromise {
   /** `asserted` was machine-checked; `observed` rode on the step prose. */
   readonly strength: 'asserted' | 'observed';
   /** What the run actually read off the page, for a client to see. */
-  readonly observed: readonly string[];
+  readonly observed: readonly BundleObservation[];
   readonly media: readonly BundleMedia[];
 }
 
@@ -94,32 +101,77 @@ export function sanitiseObservation(value: string): string | undefined {
 }
 
 /**
- * Render an observation as a sentence a non-technical reader can follow.
- * Structured values are flattened to `field: value` pairs.
+ * Render an observation as something a non-technical reader gains from.
+ *
+ * Most of what a run records is not worth showing. A bare `true`, a lone `0`, or
+ * a 200-character dump of the whole confirmation page tells a client nothing and
+ * crowds out the one line that matters. So this is a filter as much as a
+ * formatter: it keeps short, specific, factual readings and drops the rest.
  */
-export function describeObservation(observation: Observation): string | undefined {
-  const trimmed = observation.value.trim();
+export function describeObservation(observation: Observation): BundleObservation | undefined {
+  const label = observationLabel(observation);
+  if (label === undefined) return undefined;
+
+  const value = renderValue(observation.value);
+  if (value === undefined) return undefined;
+
+  return { label, value };
+}
+
+/** Values that carry no meaning for a client on their own. */
+function isUninformative(value: string): boolean {
+  if (/^(true|false|yes|no|none|null|undefined|0|1|-)$/i.test(value)) return true;
+  // A wall of prose is a page dump, not a reading.
+  if (value.length > 150 && value.split(/\s+/).length > 20) return true;
+  return false;
+}
+
+function renderValue(raw: string): string | undefined {
+  const trimmed = raw.trim();
+  if (trimmed === '') return undefined;
 
   if (trimmed.startsWith('{')) {
     let parsed: unknown;
     try {
       parsed = JSON.parse(trimmed) as unknown;
     } catch {
-      return sanitiseObservation(trimmed);
+      return isUninformative(trimmed) ? undefined : sanitiseObservation(trimmed);
     }
     if (typeof parsed === 'object' && parsed !== null) {
       const parts: string[] = [];
       for (const [key, value] of Object.entries(parsed as Record<string, unknown>)) {
         if (value === null || value === '' || value === undefined) continue;
         const rendered = Array.isArray(value) ? value.join(', ') : String(value);
-        if (rendered === '') continue;
+        if (rendered === '' || isUninformative(rendered)) continue;
         parts.push(`${humanise(key)}: ${rendered}`);
       }
       return parts.length === 0 ? undefined : sanitiseObservation(parts.join(' · '));
     }
   }
 
+  if (isUninformative(trimmed)) return undefined;
   return sanitiseObservation(trimmed);
+}
+
+/**
+ * A readable label for what was being read, from the agent's stated intent.
+ * Intents that are only internal variable names are rejected outright.
+ */
+function observationLabel(observation: Observation): string | undefined {
+  const source = observation.intent !== '' ? observation.intent : observation.key;
+  const cleaned = source
+    .replace(/\{\{[^}]+\}\}/g, '')
+    .replace(/\bsaved? as\b.*$/i, '')
+    .replace(/^(reading|read|get|getting|checking|check)\s+/i, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  if (cleaned === '') return undefined;
+  // Internal identifiers leaking through as a label help nobody.
+  if (/_[a-z]+_/.test(cleaned) && !cleaned.includes(' ')) return undefined;
+
+  const sentence = cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
+  return sentence.length > 90 ? `${sentence.slice(0, 87)}…` : sentence;
 }
 
 function humanise(key: string): string {
@@ -131,13 +183,37 @@ function humanise(key: string): string {
 }
 
 /**
- * Describe a step for a caption a client can read, without exposing internals.
- * Kane's summaries are prefixed with the action kind ("select: Selecting …").
+ * Describe a step for a caption a client can read.
+ *
+ * Kane prefixes summaries with the action kind ("select: Selecting …") and
+ * assertion steps restate the machine phrasing ("'X' does NOT appear
+ * (forbidden-presence)"). Neither belongs in front of a client, and a caption
+ * that leaks internal variable names is worse than no caption at all.
  */
-export function captionForStep(summary: string): string {
-  const withoutKind = summary.replace(/^[a-z_]+:\s*/i, '');
-  const collapsed = withoutKind.replace(/\s+/g, ' ').trim();
-  return collapsed.length > 120 ? `${collapsed.slice(0, 117)}…` : collapsed;
+export function captionForStep(summary: string): string | undefined {
+  let text = summary.replace(/^[a-z_]+:\s*/i, '');
+
+  // Machine assertion phrasing, rewritten or dropped. Kane truncates step
+  // summaries, so the closing quote and the "(forbidden-presence)" suffix are
+  // often missing and cannot be relied on.
+  const forbidden = /^'(.+?)'\s+does NOT? ?a?p?p?e?a?r?/i.exec(text);
+  if (forbidden?.[1] !== undefined) {
+    text = `Checking that ${forbidden[1]} is absent`;
+  } else if (/^'[^']*$/.test(text) || /\bdoes NO$/i.test(text)) {
+    // A truncated assertion summary with nothing recoverable.
+    return undefined;
+  }
+  text = text.replace(/\s*\(forbidden[-\s]presence\)?.*$/i, '');
+  text = text.replace(/\s*—\s*the stated promise:.*$/i, '');
+
+  const collapsed = text.replace(/\s+/g, ' ').trim();
+  if (collapsed === '') return undefined;
+
+  // Internal variable names must never reach a client-facing caption.
+  if (/\b[a-z]+_[a-z]+(_[a-z]+)*\b/.test(collapsed)) return undefined;
+
+  const sentence = collapsed.charAt(0).toUpperCase() + collapsed.slice(1);
+  return sentence.length > 110 ? `${sentence.slice(0, 107)}…` : sentence;
 }
 
 export interface ProjectOptions {
@@ -159,24 +235,33 @@ export function project(
   const media: { packPath: string; file: string }[] = [];
   const seen = new Set<string>();
 
-  // Which observations belong to which promise, by covering test.
-  const testSlugByAssuranceId = new Map(
-    pack.tests.flatMap((t) => (t.assuranceId === undefined ? [] : [[t.assuranceId, t.slug]])),
-  );
+  /**
+   * Which test slugs carry evidence for a promise.
+   *
+   * Packs do not always record `assurance_id` on every test — observed in a real
+   * run where one of five tests had none. When the link cannot be resolved, tests
+   * without an id are included rather than excluded: hiding the evidence for the
+   * one promise that failed would be the worst possible failure mode, and it is
+   * exactly what happened before this fallback existed.
+   */
+  const slugsFor = (testIds: readonly string[]): ReadonlySet<string> => {
+    const matched = pack.tests.filter(
+      (t) => t.assuranceId !== undefined && testIds.includes(t.assuranceId),
+    );
+    if (matched.length > 0) return new Set(matched.map((t) => t.slug));
+    return new Set(pack.tests.filter((t) => t.assuranceId === undefined).map((t) => t.slug));
+  };
 
   const bundlePromises: BundlePromise[] = promises.map((promise) => {
-    const slugs = new Set(
-      promise.testIds.flatMap((id) => {
-        const slug = testSlugByAssuranceId.get(id);
-        return slug === undefined ? [] : [slug];
-      }),
-    );
+    const slugs = slugsFor(promise.testIds);
 
-    const observed: string[] = [];
+    const observed: BundleObservation[] = [];
     for (const observation of pack.observations) {
       if (!slugs.has(observation.testSlug)) continue;
       const described = describeObservation(observation);
-      if (described !== undefined && !observed.includes(described)) observed.push(described);
+      if (described === undefined) continue;
+      if (observed.some((o) => o.value === described.value)) continue;
+      observed.push(described);
     }
 
     // Screenshots: the decisive ones only. A failing promise shows where it
@@ -191,12 +276,15 @@ export function project(
       );
       for (const step of interesting.slice(0, 3)) {
         if (step.screenshot === undefined) continue;
+        const caption = captionForStep(step.summary);
+        if (caption === undefined) continue;
+
         const file = `${test.slug}-${step.id}.jpg`.replace(/[^A-Za-z0-9._-]/g, '-');
         if (!seen.has(file)) {
           seen.add(file);
           media.push({ packPath: step.screenshot, file });
         }
-        shots.push({ file, caption: captionForStep(step.summary) });
+        shots.push({ file, caption });
       }
     }
 
