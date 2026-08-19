@@ -1,0 +1,19 @@
+{
+  "commit_id": "7262a6d1-73d5-4ef1-b2bd-04960a14a6f1",
+  "test_id": "049cf57a-7c87-4788-b4d4-f9d021370074",
+  "testcase_id": "01M0DETCF1N70BVFVARXY65X31",
+  "project_id": "01M0D7RTPQSYGK7EGYRZA3WWZ9",
+  "folder_id": "01M0D7RWTXD6XG3N5WFB85T44S",
+  "org_id": "3280865",
+  "session_name": "browse-the-bouquet-catalogue-and-confirm-bouquet-prices-are",
+  "executions": [
+    {
+      "execution_id": "39e23ee2-a8a8-4865-a28d-b1d54aabc414",
+      "run_kind": "author",
+      "status": "failed",
+      "valid": true,
+      "uploaded": true,
+      "at": "2026-08-19T17:36:51.371Z"
+    }
+  ]
+}

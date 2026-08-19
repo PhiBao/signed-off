@@ -1,0 +1,1 @@
+{"label":"ac","content":{"text":"After a visitor attempts to choose Sunday during guest checkout, Sunday is not shown as the selected delivery date.","kind":"forbidden-presence","risk":"high","derived":true,"expected_answer":{"operator":"exists","operand":"Sunday shown as the selected delivery date after the selection attempt"}}}

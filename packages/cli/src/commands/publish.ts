@@ -8,6 +8,7 @@ import { verdictsFromPack } from '../domain/verdict.ts';
 import { evidenceValidate } from '../kane/api.ts';
 import { loadGraph } from '../kane/graph.ts';
 import { readPack } from '../kane/pack.ts';
+import { redactPack } from '../kane/redact.ts';
 import { project as buildProjection } from '../projection.ts';
 import * as ui from '../ui/render.ts';
 
@@ -110,7 +111,11 @@ export async function publish(options: PublishOptions): Promise<number> {
   }
 
   if (options.includePack) {
-    await writeFile(join(mediaDir, 'evidence.evidence'), await readFile(packPath));
+    // Redacted, not raw: the pack's result.yaml carries the maker's account
+    // email and a dashboard share token, and offering it for download would
+    // walk straight around the projection allowlist. The redacted copy still
+    // validates at L1, so the client loses nothing they can check.
+    redactPack(packPath, join(mediaDir, 'evidence.evidence'));
   }
 
   const url = `${options.baseUrl.replace(/\/$/, '')}/p/${slug}`;

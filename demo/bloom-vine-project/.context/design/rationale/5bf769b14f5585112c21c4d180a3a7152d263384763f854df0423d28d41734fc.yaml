@@ -1,0 +1,9 @@
+anchor: ac-5
+combinatorial:
+  reason: 'Techniques applied: equivalence partitioning for the successful in-stock/guest/non-Sunday order path; state / flow because the source describes an end-to-end checkout journey; persistence/responsiveness were not separately minted because the source promises phone completion, not refresh or multi-breakpoint behavior. Risk-judged interaction strength was 3 because money applies, but no covering array was needed because this scenario fixes one successful combination and the outcome-changing variants became separate scenarios under the outcome rule.'
+  strength: 2
+deferred_bindings: 0
+expected_how: 'expected_mode: authored'
+profile_family: unspecified
+surface_state: absent
+technique: 'Techniques applied: equivalence partitioning for the successful in-stock/guest/non-Sunday order path; state / flow because the source describes an end-to-end checkout journey; persistence/responsiveness were not separately minted because the source promises phone completion, not refresh or multi-breakpoint behavior. Risk-judged interaction strength was 3 because money applies, but no covering array was needed because this scenario fixes one successful combination and the outcome-changing variants became separate scenarios under the outcome rule.'

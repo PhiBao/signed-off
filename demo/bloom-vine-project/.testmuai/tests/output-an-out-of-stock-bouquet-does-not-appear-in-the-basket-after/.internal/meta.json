@@ -1,0 +1,41 @@
+{
+  "test_id": "3dbc9c60-5e5c-41b1-81b2-178bd1382f7e",
+  "project_id": "01M0D7RTPQSYGK7EGYRZA3WWZ9",
+  "folder_id": "01M0D7RWTXD6XG3N5WFB85T44S",
+  "org_id": "3280865",
+  "session_name": "an-out-of-stock-bouquet-does-not-appear-in-the-basket-after",
+  "commit_id": "7644adb2-c7d5-47df-8635-22d9f034377f",
+  "testcase_id": "01M0DEPZFQ7GPF68J5R9AT1J3N",
+  "executions": [
+    {
+      "execution_id": "55c5dffc-13bf-49e4-9861-9ee4269c55d0",
+      "run_kind": "author",
+      "status": "passed",
+      "valid": true,
+      "at": "2026-08-19T16:48:53.648Z"
+    },
+    {
+      "execution_id": "39691de6-b770-4388-8467-e94b1ef74004",
+      "run_kind": "author",
+      "status": "passed",
+      "at": "2026-08-19T16:59:42.197Z",
+      "uploaded": true
+    },
+    {
+      "execution_id": "02973141-e4e8-4f91-9da9-2976c7120804",
+      "run_kind": "replay",
+      "status": "passed",
+      "valid": true,
+      "uploaded": true,
+      "at": "2026-08-19T17:13:38.661Z"
+    },
+    {
+      "execution_id": "39e23ee2-a8a8-4865-a28d-b1d54aabc414",
+      "run_kind": "replay",
+      "status": "passed",
+      "valid": true,
+      "uploaded": true,
+      "at": "2026-08-19T17:36:51.369Z"
+    }
+  ]
+}

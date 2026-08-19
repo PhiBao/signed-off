@@ -1,0 +1,1 @@
+{"label":"ac","content":{"text":"Sunday is not selectable as a delivery date.","kind":"forbidden-presence","risk":"high","derived":true,"expected_answer":{"operator":"exists","operand":"Sunday as a selectable delivery date"}}}

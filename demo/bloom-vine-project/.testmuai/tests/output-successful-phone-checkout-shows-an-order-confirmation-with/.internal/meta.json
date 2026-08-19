@@ -1,0 +1,41 @@
+{
+  "test_id": "c75f623b-bb58-438b-a467-6ee812475c41",
+  "project_id": "01M0D7RTPQSYGK7EGYRZA3WWZ9",
+  "folder_id": "01M0D7RWTXD6XG3N5WFB85T44S",
+  "org_id": "3280865",
+  "session_name": "successful-phone-checkout-shows-an-order-confirmation-with",
+  "commit_id": "63c5eb74-42da-467d-8823-432019d43c7c",
+  "testcase_id": "01M0DF8ES6E0JX9QEGCP7Z4PQY",
+  "executions": [
+    {
+      "execution_id": "17478e3d-43d0-4a50-a56f-382d39119b81",
+      "run_kind": "author",
+      "status": "passed",
+      "valid": true,
+      "at": "2026-08-19T16:59:23.371Z"
+    },
+    {
+      "execution_id": "39691de6-b770-4388-8467-e94b1ef74004",
+      "run_kind": "author",
+      "status": "passed",
+      "at": "2026-08-19T16:59:42.202Z",
+      "uploaded": true
+    },
+    {
+      "execution_id": "02973141-e4e8-4f91-9da9-2976c7120804",
+      "run_kind": "replay",
+      "status": "passed",
+      "valid": true,
+      "uploaded": true,
+      "at": "2026-08-19T17:13:38.668Z"
+    },
+    {
+      "execution_id": "39e23ee2-a8a8-4865-a28d-b1d54aabc414",
+      "run_kind": "replay",
+      "status": "passed",
+      "valid": true,
+      "uploaded": true,
+      "at": "2026-08-19T17:36:51.375Z"
+    }
+  ]
+}

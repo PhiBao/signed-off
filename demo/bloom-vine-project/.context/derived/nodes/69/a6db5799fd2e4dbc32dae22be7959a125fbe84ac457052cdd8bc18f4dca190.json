@@ -1,0 +1,1 @@
+{"label":"ac","content":{"text":"A visitor can view bouquet listings in the bouquet catalogue.","kind":"presence","risk":"med","derived":true,"expected_answer":{"operator":"exists","operand":"a bouquet listing is visible in the bouquet catalogue to a visitor"}}}

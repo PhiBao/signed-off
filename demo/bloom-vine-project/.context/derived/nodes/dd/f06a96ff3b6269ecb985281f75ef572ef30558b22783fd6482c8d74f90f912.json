@@ -1,0 +1,1 @@
+{"label":"ac","content":{"text":"After a visitor attempts to add an out-of-stock bouquet, that bouquet is not present in the basket.","kind":"forbidden-presence","risk":"high","derived":true,"expected_answer":{"operator":"exists","operand":"the attempted out-of-stock bouquet present in the basket"}}}

@@ -1,0 +1,49 @@
+{
+  "test_id": "7b304b4f-2b4f-4389-ab63-995dc49ee220",
+  "project_id": "01M0D7RTPQSYGK7EGYRZA3WWZ9",
+  "folder_id": "01M0D7RWTXD6XG3N5WFB85T44S",
+  "org_id": "3280865",
+  "session_name": "guest-checkout-does-not-allow-sunday-as-the-selected",
+  "commit_id": "3d1ac01d-f0ab-4923-b6d1-ec442ef56c68",
+  "testcase_id": "01M0DE2B16X7KSDZRJ4Q67V643",
+  "executions": [
+    {
+      "execution_id": "8a3baa7b-68e7-4a71-a37d-56dcd4928523",
+      "run_kind": "author",
+      "status": "passed",
+      "valid": true,
+      "at": "2026-08-19T16:39:34.399Z"
+    },
+    {
+      "execution_id": "596b5501-4c5e-4348-88cf-87ce6ed7a898",
+      "run_kind": "replay",
+      "status": "passed",
+      "valid": true,
+      "uploaded": false,
+      "at": "2026-08-19T16:47:15.220Z"
+    },
+    {
+      "execution_id": "39691de6-b770-4388-8467-e94b1ef74004",
+      "run_kind": "replay",
+      "status": "passed",
+      "at": "2026-08-19T16:59:42.201Z",
+      "uploaded": true
+    },
+    {
+      "execution_id": "02973141-e4e8-4f91-9da9-2976c7120804",
+      "run_kind": "replay",
+      "status": "passed",
+      "valid": true,
+      "uploaded": true,
+      "at": "2026-08-19T17:13:38.666Z"
+    },
+    {
+      "execution_id": "39e23ee2-a8a8-4865-a28d-b1d54aabc414",
+      "run_kind": "replay",
+      "status": "passed",
+      "valid": true,
+      "uploaded": true,
+      "at": "2026-08-19T17:36:51.374Z"
+    }
+  ]
+}

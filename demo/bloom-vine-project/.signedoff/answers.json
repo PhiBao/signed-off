@@ -1,0 +1,13 @@
+{
+  "in_stock_bouquet": "Garden Blush",
+  "out_of_stock_bouquet": "Winter White",
+  "guest_name": "Alex Fielding",
+  "guest_email": "alex.fielding@example.com",
+  "guest_phone": "07700 900123",
+  "delivery_address": "18 Fennel Street, Flat 2, Manchester M4 1JG",
+  "non_sunday_delivery_date": "Friday 21 August",
+  "test_payment_method": {
+    "value": "4242 4242 4242 4242",
+    "secret": true
+  }
+}

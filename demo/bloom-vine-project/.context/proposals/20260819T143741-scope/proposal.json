@@ -1,0 +1,182 @@
+{
+  "version": 1,
+  "read_basis": "sha256:4a8cddf93d749710d0f68b2d98a603b8bcedd6cf1e14a8e9c3bb828f7a7f0dc1",
+  "source": {
+    "source_id": "scope",
+    "source_cid": "sha256:49c7ac021c5a4676739e96fa67e4c62d1a034dd9cf64d91a7bb57d22c1ab8335"
+  },
+  "use_cases": [
+    {
+      "temp_ref": "n1",
+      "title": "Place a bouquet order as a guest",
+      "description": "A visitor completes the end-to-end purchase flow by adding an in-stock bouquet to the basket, seeing the basket total reflect what was added, choosing a delivery date that excludes Sundays, checking out without creating an account, and receiving an on-screen order confirmation with an order number; the same flow must work on a phone because the site is intended to take orders from mostly mobile, Instagram-led customers without Sarah’s direct involvement.",
+      "summary": "Guest bouquet checkout",
+      "actors": [
+        "visitor"
+      ],
+      "value": "Captures revenue through self-serve online ordering without requiring staff or account creation.",
+      "risk": "high",
+      "cite": {
+        "anchor": "L21-L22",
+        "quote": "3. A visitor can complete checkout as a guest — we agreed no account is\n   required, because Sarah's customers are mostly one-off buyers."
+      },
+      "cites": [
+        {
+          "anchor": "L21-L22",
+          "quote": "3. A visitor can complete checkout as a guest — we agreed no account is\n   required, because Sarah's customers are mostly one-off buyers."
+        },
+        {
+          "anchor": "L19-L20",
+          "quote": "2. A visitor can add a bouquet to the basket, and the basket total updates to\n   reflect what they added."
+        },
+        {
+          "anchor": "L23-L24",
+          "quote": "4. Delivery date selection: the customer must not be able to choose a Sunday,\n   since Sarah does not deliver on Sundays."
+        },
+        {
+          "anchor": "L25-L26",
+          "quote": "5. After a successful order the customer sees an order confirmation with an\n   order number, and Sarah receives the order by email."
+        },
+        {
+          "anchor": "L27-L27",
+          "quote": "6. If a bouquet is out of stock it must not be addable to the basket."
+        },
+        {
+          "anchor": "L28-L29",
+          "quote": "7. The whole flow above must work on a phone. Sarah says most of her customers\n   are on Instagram on their phones."
+        }
+      ],
+      "criteria": [
+        {
+          "text": "guest checkout requires no account creation",
+          "cite": {
+            "anchor": "L21-L22",
+            "quote": "3. A visitor can complete checkout as a guest — we agreed no account is\n   required, because Sarah's customers are mostly one-off buyers."
+          }
+        },
+        {
+          "text": "a visitor can add a bouquet to the basket and the basket total updates to reflect what they added",
+          "cite": {
+            "anchor": "L19-L20",
+            "quote": "2. A visitor can add a bouquet to the basket, and the basket total updates to\n   reflect what they added."
+          }
+        },
+        {
+          "text": "delivery date selection forbids Sunday",
+          "cite": {
+            "anchor": "L23-L24",
+            "quote": "4. Delivery date selection: the customer must not be able to choose a Sunday,\n   since Sarah does not deliver on Sundays."
+          }
+        },
+        {
+          "text": "out-of-stock bouquets are not addable to the basket",
+          "cite": {
+            "anchor": "L27-L27",
+            "quote": "6. If a bouquet is out of stock it must not be addable to the basket."
+          }
+        },
+        {
+          "text": "successful checkout shows an order confirmation with an order number",
+          "cite": {
+            "anchor": "L25-L26",
+            "quote": "5. After a successful order the customer sees an order confirmation with an\n   order number, and Sarah receives the order by email."
+          }
+        },
+        {
+          "text": "the checkout flow works on a phone",
+          "cite": {
+            "anchor": "L28-L29",
+            "quote": "7. The whole flow above must work on a phone. Sarah says most of her customers\n   are on Instagram on their phones."
+          }
+        }
+      ],
+      "depends_on_hint": []
+    },
+    {
+      "temp_ref": "n2",
+      "title": "Receive online orders by email",
+      "description": "Sarah receives each successfully placed order by email so the shop can process online purchases even when nobody is available to answer the phone or Instagram DMs, which is the operational mechanism this milestone uses to let the website take orders without her direct involvement at the moment of purchase.",
+      "summary": "Email order notification",
+      "actors": [
+        "Sarah Whitmore"
+      ],
+      "value": "Prevents missed orders by notifying the florist of successful online purchases.",
+      "risk": "high",
+      "cite": {
+        "anchor": "L25-L26",
+        "quote": "5. After a successful order the customer sees an order confirmation with an\n   order number, and Sarah receives the order by email."
+      },
+      "cites": [
+        {
+          "anchor": "L25-L26",
+          "quote": "5. After a successful order the customer sees an order confirmation with an\n   order number, and Sarah receives the order by email."
+        },
+        {
+          "anchor": "L9-L11",
+          "quote": "She loses\norders on weekends because nobody is at the shop to answer. The new site needs\nto take orders without her involvement."
+        }
+      ],
+      "criteria": [
+        {
+          "text": "a successful order sends the order to Sarah by email",
+          "cite": {
+            "anchor": "L25-L26",
+            "quote": "5. After a successful order the customer sees an order confirmation with an\n   order number, and Sarah receives the order by email."
+          }
+        }
+      ],
+      "depends_on_hint": [
+        "n1"
+      ]
+    },
+    {
+      "temp_ref": "n3",
+      "title": "Browse bouquet catalogue",
+      "description": "A visitor browses the bouquet catalogue and can see the price of each bouquet before deciding whether to add anything to the basket, and this storefront discovery experience must also work on a phone because most customers arrive from Instagram on mobile devices.",
+      "summary": "Browse bouquets and prices",
+      "actors": [
+        "visitor"
+      ],
+      "value": "Lets customers discover products and prices before starting an order.",
+      "risk": "med",
+      "cite": {
+        "anchor": "L17-L18",
+        "quote": "1. A visitor can browse the bouquet catalogue and see the price of every bouquet\n   before adding anything to the basket."
+      },
+      "cites": [
+        {
+          "anchor": "L17-L18",
+          "quote": "1. A visitor can browse the bouquet catalogue and see the price of every bouquet\n   before adding anything to the basket."
+        },
+        {
+          "anchor": "L28-L29",
+          "quote": "7. The whole flow above must work on a phone. Sarah says most of her customers\n   are on Instagram on their phones."
+        }
+      ],
+      "criteria": [
+        {
+          "text": "the bouquet catalogue is browseable",
+          "cite": {
+            "anchor": "L17-L17",
+            "quote": "1. A visitor can browse the bouquet catalogue and see the price of every bouquet"
+          }
+        },
+        {
+          "text": "the price of every bouquet is visible before anything is added to the basket",
+          "cite": {
+            "anchor": "L17-L18",
+            "quote": "1. A visitor can browse the bouquet catalogue and see the price of every bouquet\n   before adding anything to the basket."
+          }
+        },
+        {
+          "text": "the storefront flow works on a phone",
+          "cite": {
+            "anchor": "L28-L29",
+            "quote": "7. The whole flow above must work on a phone. Sarah says most of her customers\n   are on Instagram on their phones."
+          }
+        }
+      ],
+      "depends_on_hint": []
+    }
+  ]
+}
