@@ -1,0 +1,1 @@
+{"label":"ac","content":{"text":"The order confirmation includes an order number.","kind":"presence","risk":"high","derived":true,"expected_answer":{"operator":"exists","operand":"an order number on the order confirmation"}}}

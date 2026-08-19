@@ -1,0 +1,40 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: ui-serif, Georgia, 'Times New Roman', serif;
+
+  --color-bloom-ink: #24302b;
+  --color-bloom-muted: #6b7a72;
+  --color-bloom-line: #dfe4de;
+  --color-bloom-cream: #faf8f4;
+  --color-bloom-leaf: #3f6b52;
+  --color-bloom-leafdark: #2f5140;
+  --color-bloom-blush: #c9647c;
+}
+
+html {
+  background-color: var(--color-bloom-cream);
+}
+
+body {
+  color: var(--color-bloom-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Visible focus everywhere, since the whole flow must be keyboard reachable. */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--color-bloom-leaf);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,9 @@
+anchor: ac-11
+combinatorial:
+  reason: 'Techniques applied: negative / error and equivalence partitioning on stock state, separating addable in-stock bouquets from forbidden out-of-stock bouquets. Risk-judged interaction strength was 3 because money applies, but no covering array was needed because stock state is the single outcome-changing input for this rule.'
+  strength: 2
+deferred_bindings: 0
+expected_how: 'expected_mode: authored'
+profile_family: unspecified
+surface_state: absent
+technique: 'Techniques applied: negative / error and equivalence partitioning on stock state, separating addable in-stock bouquets from forbidden out-of-stock bouquets. Risk-judged interaction strength was 3 because money applies, but no covering array was needed because stock state is the single outcome-changing input for this rule.'

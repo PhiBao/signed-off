@@ -1,0 +1,9 @@
+anchor: ac-13
+combinatorial:
+  reason: 'Techniques applied: equivalence partitioning for the single successful-order representative path; state / flow because the cited behavior occurs only after the checkout journey reaches a successful order state. Risk-judged interaction strength was 3 because money applies to missed orders, but no covering array was needed because this use-case exposed one outcome-changing successful path and the corpus did not define alternative email-routing semantics or failure outcomes to combine.'
+  strength: 2
+deferred_bindings: 0
+expected_how: 'expected_mode: authored'
+profile_family: unspecified
+surface_state: absent
+technique: 'Techniques applied: equivalence partitioning for the single successful-order representative path; state / flow because the cited behavior occurs only after the checkout journey reaches a successful order state. Risk-judged interaction strength was 3 because money applies to missed orders, but no covering array was needed because this use-case exposed one outcome-changing successful path and the corpus did not define alternative email-routing semantics or failure outcomes to combine.'

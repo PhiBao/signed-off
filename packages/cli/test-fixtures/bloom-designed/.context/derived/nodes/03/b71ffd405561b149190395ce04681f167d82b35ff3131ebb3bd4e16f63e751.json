@@ -1,0 +1,1 @@
+{"label":"ac","content":{"text":"After a successful checkout, the order is sent to Sarah by email.","kind":"propagation","risk":"high","derived":true,"expected_answer":{"operator":"exists","operand":"the placed order delivered to Sarah by email"}}}

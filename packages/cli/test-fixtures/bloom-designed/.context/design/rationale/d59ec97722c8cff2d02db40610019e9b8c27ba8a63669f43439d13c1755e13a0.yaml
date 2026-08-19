@@ -1,0 +1,9 @@
+anchor: ac-15
+combinatorial:
+  reason: '(degraded from 2: only 1 input(s))), so the scenario enumerates the single input''s representative values as parameters rather than splitting outcome-identical paths. Responsiveness was included because the source explicitly says the flow must work on a phone; negative, BVA, a11y, perf, and i18n did not mint separate paths because the source states no invalid-input behavior, bounds, accessibility promise, performance threshold, or locale-dependent rule for catalogue browsing.'
+  strength: 1
+deferred_bindings: 0
+expected_how: 'expected_mode: authored'
+profile_family: unspecified
+surface_state: absent
+technique: 'Derived with equivalence partitioning over viewport classes for the same expected outcome: default browser and phone-sized browser. covering_array reported strength=1 (degraded from 2: only 1 input(s))), so the scenario enumerates the single input''s representative values as parameters rather than splitting outcome-identical paths. Responsiveness was included because the source explicitly says the flow must work on a phone; negative, BVA, a11y, perf, and i18n did not mint separate paths because the source states no invalid-input behavior, bounds, accessibility promise, performance threshold, or locale-dependent rule for catalogue browsing.'

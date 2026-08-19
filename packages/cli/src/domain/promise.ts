@@ -138,12 +138,29 @@ export function buildInventory(
       return asserted !== undefined && !asserted.has(acId);
     });
 
-  // Gaps that name an AC block that promise. The rest are project-level questions.
+  // A gap blocks a specific promise only when its `ref` names a criterion we
+  // actually know about.
+  //
+  // Kane's `ref` field is deliberately loose: it can be an AC logical id
+  // (`ac-8`), a per-session temp ref (`a1`), a use-case or test id (`uc-3`,
+  // `t1`), or a named slot that is not a node at all (`web-entry-point`,
+  // `guest-checkout-data`). Anything that is not a resolvable criterion is a
+  // question about the project rather than about one promise — and those are
+  // the ones worth sending to the client before work starts.
+  const knownAcIds = new Set(graph.acs.map((ac) => ac.id));
   const gapByBlockedAc = new Map<string, GapNode>();
   const projectGaps: GapNode[] = [];
+
   for (const gap of graph.gaps) {
-    if (gap.blocks === undefined) projectGaps.push(gap);
-    else gapByBlockedAc.set(gap.blocks, gap);
+    if (gap.blocks !== undefined && knownAcIds.has(gap.blocks)) {
+      // Keep the most severe gap when several block the same promise.
+      const existing = gapByBlockedAc.get(gap.blocks);
+      if (existing === undefined || rank(gap) > rank(existing)) {
+        gapByBlockedAc.set(gap.blocks, gap);
+      }
+    } else {
+      projectGaps.push(gap);
+    }
   }
 
   const promises: DeliveryPromise[] = graph.acs.map((ac) => {
@@ -182,7 +199,7 @@ export function buildInventory(
 
   return {
     promises,
-    openQuestions: projectGaps.map(toQuestion),
+    openQuestions: dedupeQuestions(projectGaps).map(toQuestion),
     counts: {
       total: promises.length,
       checkable: promises.filter((p) => p.checkability === 'checkable').length,
@@ -191,6 +208,36 @@ export function buildInventory(
       notDesigned: promises.filter((p) => p.checkability === 'not_designed').length,
     },
   };
+}
+
+/** Severity ordering, so the most serious gap wins when several collide. */
+function rank(gap: GapNode): number {
+  const byKind = gap.kind === 'unmeasurable' ? 2 : gap.kind === 'missing-expected-result' ? 1 : 0;
+  const byRisk = gap.risk === 'high' ? 2 : gap.risk === 'med' ? 1 : 0;
+  return byKind * 3 + byRisk;
+}
+
+/**
+ * Collapse duplicate questions.
+ *
+ * Designing three use-cases independently asks "what is the start URL?" three
+ * times. The maker should be asked once, and the client should certainly only
+ * be asked once. Highest-risk phrasing wins.
+ */
+function dedupeQuestions(gaps: readonly GapNode[]): readonly GapNode[] {
+  const best = new Map<string, GapNode>();
+
+  for (const gap of gaps) {
+    const key = normaliseKey(gap.header === '' ? gap.prompt : gap.header);
+    const existing = best.get(key);
+    if (existing === undefined || rank(gap) > rank(existing)) best.set(key, gap);
+  }
+
+  return [...best.values()].sort((a, b) => rank(b) - rank(a));
+}
+
+function normaliseKey(text: string): string {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 }
 
 /**

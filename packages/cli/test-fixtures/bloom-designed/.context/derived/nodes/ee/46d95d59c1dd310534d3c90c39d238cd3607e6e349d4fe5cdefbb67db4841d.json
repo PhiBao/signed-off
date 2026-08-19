@@ -1,0 +1,1 @@
+{"label":"ac","content":{"text":"A guest checkout path is available to the visitor.","kind":"presence","risk":"high","derived":true,"expected_answer":{"operator":"exists","operand":"a checkout path that proceeds without signing in or creating an account"}}}

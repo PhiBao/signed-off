@@ -1,0 +1,1 @@
+{"label":"ac","content":{"text":"Adding one in-stock bouquet to the basket increases the basket total by that bouquet's price.","kind":"delta","risk":"high","derived":true,"expected_answer":{"operator":"changed-by","operand":"price of the bouquet added","baseline":"basket total before the bouquet is added"}}}

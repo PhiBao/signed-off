@@ -1,0 +1,1 @@
+{"label":"ac","content":{"text":"After a successful online order on the phone checkout path, the customer sees an order confirmation that includes an order number.","kind":"presence","risk":"high","derived":true,"expected_answer":{"operator":"exists","operand":"an order confirmation with an order number"}}}

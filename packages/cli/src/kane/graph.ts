@@ -321,13 +321,22 @@ export async function loadGraph(projectDir: string): Promise<AssuranceGraph> {
   }
 
   // Wire the relationships, translating cids back into logical ids.
+  //
+  // `scoped_to` does not always point at a use-case: Kane scopes some criteria
+  // to a *scenario* instead (observed with ac-10 -> sc-2). Those must be
+  // resolved transitively through the scenario's `belongs_to` edge, or the
+  // criterion ends up orphaned and the client sees a mystery "Other" group.
   const testVerifies = new Map<string, string[]>();
+  const scopedTo = new Map<string, string>();
+  const scenarioToUseCase = new Map<string, string>();
+
   for (const e of edges) {
     const srcId = idByCid.get(e.src);
     const dstId = idByCid.get(e.dst);
     if (srcId === undefined || dstId === undefined) continue;
 
-    if (e.type === 'scoped_to') acToUseCase.set(srcId, dstId);
+    if (e.type === 'scoped_to') scopedTo.set(srcId, dstId);
+    if (e.type === 'belongs_to') scenarioToUseCase.set(srcId, dstId);
 
     if (e.type === 'verifies') {
       const forAc = acToTests.get(dstId) ?? [];
@@ -337,6 +346,19 @@ export async function loadGraph(projectDir: string): Promise<AssuranceGraph> {
       const byTest = testVerifies.get(srcId) ?? [];
       byTest.push(dstId);
       testVerifies.set(srcId, byTest);
+    }
+  }
+
+  const useCaseIds = new Set(useCases.map((uc) => uc.id));
+  for (const [acId, target] of scopedTo) {
+    if (useCaseIds.has(target)) {
+      acToUseCase.set(acId, target);
+      continue;
+    }
+    // Scoped to a scenario: follow it home to the use-case.
+    const viaScenario = scenarioToUseCase.get(target);
+    if (viaScenario !== undefined && useCaseIds.has(viaScenario)) {
+      acToUseCase.set(acId, viaScenario);
     }
   }
 

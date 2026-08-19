@@ -1,0 +1,1 @@
+{"label":"ac","content":{"text":"A successful checkout shows an order confirmation.","kind":"presence","risk":"high","derived":true,"expected_answer":{"operator":"exists","operand":"an order confirmation shown after successful checkout"}}}

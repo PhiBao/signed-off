@@ -1,0 +1,1 @@
+{"label":"ac","content":{"text":"Every bouquet shown in the catalogue displays its price before any add-to-basket action.","kind":"presence","risk":"med","derived":true,"expected_answer":{"operator":"forall","operand":"each bouquet shown in the catalogue has a visible price before any add-to-basket action"}}}

@@ -1,0 +1,1 @@
+{"label":"ac","content":{"text":"A visitor can proceed through checkout without being required to create an account before submitting the order.","kind":"forbidden-presence","risk":"high","derived":true,"expected_answer":{"operator":"exists","operand":"a mandatory account-creation step before order submission"}}}
