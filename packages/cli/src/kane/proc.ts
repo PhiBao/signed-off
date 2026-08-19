@@ -106,9 +106,10 @@ export async function runKane(args: readonly string[], options: KaneOptions): Pr
 
     const stdout = child.stdout;
     const stderrStream = child.stderr;
+    let lines: ReturnType<typeof createInterface> | undefined;
 
     if (stdout !== null) {
-      const lines = createInterface({ input: stdout, crlfDelay: Infinity });
+      lines = createInterface({ input: stdout, crlfDelay: Infinity });
       lines.on('line', (line) => {
         if (stdoutText.length < 64 * 1024) stdoutText += `${line}\n`;
 
@@ -143,6 +144,16 @@ export async function runKane(args: readonly string[], options: KaneOptions): Pr
         if (settled) return;
         settled = true;
         clearTimeout(timer);
+
+        // Detached Chrome keeps writing to the inherited pipes long after
+        // kane-cli is gone. Releasing them here is what actually lets the
+        // process exit — without it the event loop stays alive on a readline
+        // handle attached to a browser nobody is waiting for.
+        lines?.close();
+        stdout?.destroy();
+        stderrStream?.destroy();
+        child.unref();
+
         resolve({
           // A killed process reports as a timeout, matching Kane's semantics.
           exitCode: signal !== null ? KaneExit.Timeout : (code ?? KaneExit.Error),

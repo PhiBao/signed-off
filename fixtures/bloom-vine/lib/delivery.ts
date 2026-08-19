@@ -5,8 +5,15 @@
  * Sunday, since Sarah does not deliver on Sundays."
  */
 
-/** Days Bloom & Vine does not deliver. Sunday only, per the signed scope. */
-const NON_DELIVERY_WEEKDAYS = new Set([7]);
+/**
+ * Days Bloom & Vine does not deliver.
+ *
+ * Sunday only, per the signed scope. `getDay()` returns 0 for Sunday — not 7 —
+ * so this set must contain 0. It previously contained 7, which no weekday ever
+ * equals, so every Sunday was offered for delivery while the checkout page went
+ * on claiming "Sundays are not available".
+ */
+const NON_DELIVERY_WEEKDAYS = new Set([0]);
 
 /** Earliest delivery is two days out, to give the shop time to prepare. */
 export const LEAD_TIME_DAYS = 2;

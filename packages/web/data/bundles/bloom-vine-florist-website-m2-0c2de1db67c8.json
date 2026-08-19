@@ -1,0 +1,927 @@
+{
+  "version": 1,
+  "slug": "bloom-vine-florist-website-m2-0c2de1db67c8",
+  "title": "Bloom & Vine Florist Website",
+  "client": "Sarah Whitmore",
+  "milestone": 2,
+  "createdAt": "2026-08-19T17:37:14.715Z",
+  "run": {
+    "id": "39e23ee2-a8a8-4865-a28d-b1d54aabc414",
+    "startedAt": "2026-08-19T17:33:46.175Z",
+    "endedAt": "2026-08-19T17:36:45.540Z",
+    "browser": "Chrome",
+    "producer": "kane-cli 0.8.4"
+  },
+  "summary": {
+    "proven": 11,
+    "notProven": 0,
+    "cannotCheck": 5,
+    "total": 16
+  },
+  "promises": [
+    {
+      "id": "ac-1",
+      "text": "Adding one in-stock bouquet to the basket increases the basket total by that bouquet's price.",
+      "state": "proven",
+      "quote": "3. A visitor can complete checkout as a guest — we agreed no account is required, because Sarah's customers are mostly one-off buyers.",
+      "groupTitle": "Place a bouquet order as a guest",
+      "strength": "asserted",
+      "observed": [
+        {
+          "label": "The displayed price of",
+          "value": "£42.00"
+        },
+        {
+          "label": "The calendar control state after the Sunday selection attempt",
+          "value": "selected text: Choose a date…"
+        },
+        {
+          "label": "The inline validation message shown for the delivery-date field",
+          "value": "We deliver Monday to Saturday. Sundays are not available."
+        }
+      ],
+      "media": [
+        {
+          "file": "an-out-of-stock-bouquet-does-not-appear--6adffa1e-3-2.jpg",
+          "caption": "Checking that the attempted out-of-stock bouquet present in the basket is absent"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-1-2.jpg",
+          "caption": "At least one bouquet listing is visible to a visitor without signing in or openi"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-2-2.jpg",
+          "caption": "Each bouquet currently shown on the visible catalogue listings displays its pric"
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-5-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-8-2.jpg",
+          "caption": "The order confirmation includes an order number"
+        },
+        {
+          "file": "guest-checkout-does-not-allow-sunday-as--fb906d04-5-2.jpg",
+          "caption": "Checking that Sunday shown as the selected delivery date after the selection attempt is absent"
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-2-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-4-3.jpg",
+          "caption": "An order confirmation with an order number exists after a successful online orde"
+        }
+      ]
+    },
+    {
+      "id": "ac-10",
+      "text": "After a visitor attempts to choose Sunday during guest checkout, Sunday is not shown as the selected delivery date.",
+      "state": "proven",
+      "quote": "3. A visitor can complete checkout as a guest — we agreed no account is required, because Sarah's customers are mostly one-off buyers.",
+      "groupTitle": "Place a bouquet order as a guest",
+      "strength": "asserted",
+      "observed": [
+        {
+          "label": "The displayed price of",
+          "value": "£42.00"
+        },
+        {
+          "label": "The calendar control state after the Sunday selection attempt",
+          "value": "selected text: Choose a date…"
+        },
+        {
+          "label": "The inline validation message shown for the delivery-date field",
+          "value": "We deliver Monday to Saturday. Sundays are not available."
+        }
+      ],
+      "media": [
+        {
+          "file": "an-out-of-stock-bouquet-does-not-appear--6adffa1e-3-2.jpg",
+          "caption": "Checking that the attempted out-of-stock bouquet present in the basket is absent"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-1-2.jpg",
+          "caption": "At least one bouquet listing is visible to a visitor without signing in or openi"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-2-2.jpg",
+          "caption": "Each bouquet currently shown on the visible catalogue listings displays its pric"
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-5-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-8-2.jpg",
+          "caption": "The order confirmation includes an order number"
+        },
+        {
+          "file": "guest-checkout-does-not-allow-sunday-as--fb906d04-5-2.jpg",
+          "caption": "Checking that Sunday shown as the selected delivery date after the selection attempt is absent"
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-2-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-4-3.jpg",
+          "caption": "An order confirmation with an order number exists after a successful online orde"
+        }
+      ]
+    },
+    {
+      "id": "ac-11",
+      "text": "After a visitor attempts to add an out-of-stock bouquet, that bouquet is not present in the basket.",
+      "state": "proven",
+      "quote": "3. A visitor can complete checkout as a guest — we agreed no account is required, because Sarah's customers are mostly one-off buyers.",
+      "groupTitle": "Place a bouquet order as a guest",
+      "strength": "asserted",
+      "observed": [
+        {
+          "label": "The displayed price of",
+          "value": "£42.00"
+        },
+        {
+          "label": "The calendar control state after the Sunday selection attempt",
+          "value": "selected text: Choose a date…"
+        },
+        {
+          "label": "The inline validation message shown for the delivery-date field",
+          "value": "We deliver Monday to Saturday. Sundays are not available."
+        }
+      ],
+      "media": [
+        {
+          "file": "an-out-of-stock-bouquet-does-not-appear--6adffa1e-3-2.jpg",
+          "caption": "Checking that the attempted out-of-stock bouquet present in the basket is absent"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-1-2.jpg",
+          "caption": "At least one bouquet listing is visible to a visitor without signing in or openi"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-2-2.jpg",
+          "caption": "Each bouquet currently shown on the visible catalogue listings displays its pric"
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-5-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-8-2.jpg",
+          "caption": "The order confirmation includes an order number"
+        },
+        {
+          "file": "guest-checkout-does-not-allow-sunday-as--fb906d04-5-2.jpg",
+          "caption": "Checking that Sunday shown as the selected delivery date after the selection attempt is absent"
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-2-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-4-3.jpg",
+          "caption": "An order confirmation with an order number exists after a successful online orde"
+        }
+      ]
+    },
+    {
+      "id": "ac-2",
+      "text": "A visitor can proceed through checkout without being required to create an account before submitting the order.",
+      "state": "proven",
+      "quote": "3. A visitor can complete checkout as a guest — we agreed no account is required, because Sarah's customers are mostly one-off buyers.",
+      "groupTitle": "Place a bouquet order as a guest",
+      "strength": "asserted",
+      "observed": [
+        {
+          "label": "The displayed price of",
+          "value": "£42.00"
+        },
+        {
+          "label": "The calendar control state after the Sunday selection attempt",
+          "value": "selected text: Choose a date…"
+        },
+        {
+          "label": "The inline validation message shown for the delivery-date field",
+          "value": "We deliver Monday to Saturday. Sundays are not available."
+        }
+      ],
+      "media": [
+        {
+          "file": "an-out-of-stock-bouquet-does-not-appear--6adffa1e-3-2.jpg",
+          "caption": "Checking that the attempted out-of-stock bouquet present in the basket is absent"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-1-2.jpg",
+          "caption": "At least one bouquet listing is visible to a visitor without signing in or openi"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-2-2.jpg",
+          "caption": "Each bouquet currently shown on the visible catalogue listings displays its pric"
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-5-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-8-2.jpg",
+          "caption": "The order confirmation includes an order number"
+        },
+        {
+          "file": "guest-checkout-does-not-allow-sunday-as--fb906d04-5-2.jpg",
+          "caption": "Checking that Sunday shown as the selected delivery date after the selection attempt is absent"
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-2-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-4-3.jpg",
+          "caption": "An order confirmation with an order number exists after a successful online orde"
+        }
+      ]
+    },
+    {
+      "id": "ac-3",
+      "text": "A guest checkout path is available to the visitor.",
+      "state": "proven",
+      "quote": "3. A visitor can complete checkout as a guest — we agreed no account is required, because Sarah's customers are mostly one-off buyers.",
+      "groupTitle": "Place a bouquet order as a guest",
+      "strength": "asserted",
+      "observed": [
+        {
+          "label": "The displayed price of",
+          "value": "£42.00"
+        },
+        {
+          "label": "The calendar control state after the Sunday selection attempt",
+          "value": "selected text: Choose a date…"
+        },
+        {
+          "label": "The inline validation message shown for the delivery-date field",
+          "value": "We deliver Monday to Saturday. Sundays are not available."
+        }
+      ],
+      "media": [
+        {
+          "file": "an-out-of-stock-bouquet-does-not-appear--6adffa1e-3-2.jpg",
+          "caption": "Checking that the attempted out-of-stock bouquet present in the basket is absent"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-1-2.jpg",
+          "caption": "At least one bouquet listing is visible to a visitor without signing in or openi"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-2-2.jpg",
+          "caption": "Each bouquet currently shown on the visible catalogue listings displays its pric"
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-5-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-8-2.jpg",
+          "caption": "The order confirmation includes an order number"
+        },
+        {
+          "file": "guest-checkout-does-not-allow-sunday-as--fb906d04-5-2.jpg",
+          "caption": "Checking that Sunday shown as the selected delivery date after the selection attempt is absent"
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-2-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-4-3.jpg",
+          "caption": "An order confirmation with an order number exists after a successful online orde"
+        }
+      ]
+    },
+    {
+      "id": "ac-4",
+      "text": "A successful checkout shows an order confirmation.",
+      "state": "proven",
+      "quote": "3. A visitor can complete checkout as a guest — we agreed no account is required, because Sarah's customers are mostly one-off buyers.",
+      "groupTitle": "Place a bouquet order as a guest",
+      "strength": "asserted",
+      "observed": [
+        {
+          "label": "The displayed price of",
+          "value": "£42.00"
+        },
+        {
+          "label": "The calendar control state after the Sunday selection attempt",
+          "value": "selected text: Choose a date…"
+        },
+        {
+          "label": "The inline validation message shown for the delivery-date field",
+          "value": "We deliver Monday to Saturday. Sundays are not available."
+        }
+      ],
+      "media": [
+        {
+          "file": "an-out-of-stock-bouquet-does-not-appear--6adffa1e-3-2.jpg",
+          "caption": "Checking that the attempted out-of-stock bouquet present in the basket is absent"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-1-2.jpg",
+          "caption": "At least one bouquet listing is visible to a visitor without signing in or openi"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-2-2.jpg",
+          "caption": "Each bouquet currently shown on the visible catalogue listings displays its pric"
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-5-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-8-2.jpg",
+          "caption": "The order confirmation includes an order number"
+        },
+        {
+          "file": "guest-checkout-does-not-allow-sunday-as--fb906d04-5-2.jpg",
+          "caption": "Checking that Sunday shown as the selected delivery date after the selection attempt is absent"
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-2-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-4-3.jpg",
+          "caption": "An order confirmation with an order number exists after a successful online orde"
+        }
+      ]
+    },
+    {
+      "id": "ac-5",
+      "text": "The order confirmation includes an order number.",
+      "state": "proven",
+      "quote": "3. A visitor can complete checkout as a guest — we agreed no account is required, because Sarah's customers are mostly one-off buyers.",
+      "groupTitle": "Place a bouquet order as a guest",
+      "strength": "asserted",
+      "observed": [
+        {
+          "label": "The displayed price of",
+          "value": "£42.00"
+        },
+        {
+          "label": "The calendar control state after the Sunday selection attempt",
+          "value": "selected text: Choose a date…"
+        },
+        {
+          "label": "The inline validation message shown for the delivery-date field",
+          "value": "We deliver Monday to Saturday. Sundays are not available."
+        }
+      ],
+      "media": [
+        {
+          "file": "an-out-of-stock-bouquet-does-not-appear--6adffa1e-3-2.jpg",
+          "caption": "Checking that the attempted out-of-stock bouquet present in the basket is absent"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-1-2.jpg",
+          "caption": "At least one bouquet listing is visible to a visitor without signing in or openi"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-2-2.jpg",
+          "caption": "Each bouquet currently shown on the visible catalogue listings displays its pric"
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-5-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-8-2.jpg",
+          "caption": "The order confirmation includes an order number"
+        },
+        {
+          "file": "guest-checkout-does-not-allow-sunday-as--fb906d04-5-2.jpg",
+          "caption": "Checking that Sunday shown as the selected delivery date after the selection attempt is absent"
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-2-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-4-3.jpg",
+          "caption": "An order confirmation with an order number exists after a successful online orde"
+        }
+      ]
+    },
+    {
+      "id": "ac-6",
+      "text": "An out-of-stock bouquet cannot be added to the basket.",
+      "state": "proven",
+      "quote": "3. A visitor can complete checkout as a guest — we agreed no account is required, because Sarah's customers are mostly one-off buyers.",
+      "groupTitle": "Place a bouquet order as a guest",
+      "strength": "asserted",
+      "observed": [
+        {
+          "label": "The displayed price of",
+          "value": "£42.00"
+        },
+        {
+          "label": "The calendar control state after the Sunday selection attempt",
+          "value": "selected text: Choose a date…"
+        },
+        {
+          "label": "The inline validation message shown for the delivery-date field",
+          "value": "We deliver Monday to Saturday. Sundays are not available."
+        }
+      ],
+      "media": [
+        {
+          "file": "an-out-of-stock-bouquet-does-not-appear--6adffa1e-3-2.jpg",
+          "caption": "Checking that the attempted out-of-stock bouquet present in the basket is absent"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-1-2.jpg",
+          "caption": "At least one bouquet listing is visible to a visitor without signing in or openi"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-2-2.jpg",
+          "caption": "Each bouquet currently shown on the visible catalogue listings displays its pric"
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-5-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-8-2.jpg",
+          "caption": "The order confirmation includes an order number"
+        },
+        {
+          "file": "guest-checkout-does-not-allow-sunday-as--fb906d04-5-2.jpg",
+          "caption": "Checking that Sunday shown as the selected delivery date after the selection attempt is absent"
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-2-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-4-3.jpg",
+          "caption": "An order confirmation with an order number exists after a successful online orde"
+        }
+      ]
+    },
+    {
+      "id": "ac-7",
+      "text": "Sunday is not selectable as a delivery date.",
+      "state": "proven",
+      "quote": "3. A visitor can complete checkout as a guest — we agreed no account is required, because Sarah's customers are mostly one-off buyers.",
+      "groupTitle": "Place a bouquet order as a guest",
+      "strength": "asserted",
+      "observed": [
+        {
+          "label": "The displayed price of",
+          "value": "£42.00"
+        },
+        {
+          "label": "The calendar control state after the Sunday selection attempt",
+          "value": "selected text: Choose a date…"
+        },
+        {
+          "label": "The inline validation message shown for the delivery-date field",
+          "value": "We deliver Monday to Saturday. Sundays are not available."
+        }
+      ],
+      "media": [
+        {
+          "file": "an-out-of-stock-bouquet-does-not-appear--6adffa1e-3-2.jpg",
+          "caption": "Checking that the attempted out-of-stock bouquet present in the basket is absent"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-1-2.jpg",
+          "caption": "At least one bouquet listing is visible to a visitor without signing in or openi"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-2-2.jpg",
+          "caption": "Each bouquet currently shown on the visible catalogue listings displays its pric"
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-5-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-8-2.jpg",
+          "caption": "The order confirmation includes an order number"
+        },
+        {
+          "file": "guest-checkout-does-not-allow-sunday-as--fb906d04-5-2.jpg",
+          "caption": "Checking that Sunday shown as the selected delivery date after the selection attempt is absent"
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-2-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-4-3.jpg",
+          "caption": "An order confirmation with an order number exists after a successful online orde"
+        }
+      ]
+    },
+    {
+      "id": "ac-8",
+      "text": "After a successful checkout, the order is sent to Sarah by email.",
+      "state": "cannot_check",
+      "why": "The email side effect sits on the successful order path, but it cannot be proven by a web test from the current corpus because Sarah's inbox is an out-of-band channel with no named observable substitute.",
+      "quote": "3. A visitor can complete checkout as a guest — we agreed no account is required, because Sarah's customers are mostly one-off buyers.",
+      "groupTitle": "Place a bouquet order as a guest",
+      "strength": "asserted",
+      "observed": [
+        {
+          "label": "The displayed price of",
+          "value": "£42.00"
+        },
+        {
+          "label": "The calendar control state after the Sunday selection attempt",
+          "value": "selected text: Choose a date…"
+        },
+        {
+          "label": "The inline validation message shown for the delivery-date field",
+          "value": "We deliver Monday to Saturday. Sundays are not available."
+        }
+      ],
+      "media": [
+        {
+          "file": "an-out-of-stock-bouquet-does-not-appear--6adffa1e-3-2.jpg",
+          "caption": "Checking that the attempted out-of-stock bouquet present in the basket is absent"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-1-2.jpg",
+          "caption": "At least one bouquet listing is visible to a visitor without signing in or openi"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-2-2.jpg",
+          "caption": "Each bouquet currently shown on the visible catalogue listings displays its pric"
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-5-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-8-2.jpg",
+          "caption": "The order confirmation includes an order number"
+        },
+        {
+          "file": "guest-checkout-does-not-allow-sunday-as--fb906d04-5-2.jpg",
+          "caption": "Checking that Sunday shown as the selected delivery date after the selection attempt is absent"
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-2-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-4-3.jpg",
+          "caption": "An order confirmation with an order number exists after a successful online orde"
+        }
+      ]
+    },
+    {
+      "id": "ac-9",
+      "text": "The end-to-end guest checkout flow can be completed on a phone.",
+      "state": "proven",
+      "quote": "3. A visitor can complete checkout as a guest — we agreed no account is required, because Sarah's customers are mostly one-off buyers.",
+      "groupTitle": "Place a bouquet order as a guest",
+      "strength": "asserted",
+      "observed": [
+        {
+          "label": "The displayed price of",
+          "value": "£42.00"
+        },
+        {
+          "label": "The calendar control state after the Sunday selection attempt",
+          "value": "selected text: Choose a date…"
+        },
+        {
+          "label": "The inline validation message shown for the delivery-date field",
+          "value": "We deliver Monday to Saturday. Sundays are not available."
+        }
+      ],
+      "media": [
+        {
+          "file": "an-out-of-stock-bouquet-does-not-appear--6adffa1e-3-2.jpg",
+          "caption": "Checking that the attempted out-of-stock bouquet present in the basket is absent"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-1-2.jpg",
+          "caption": "At least one bouquet listing is visible to a visitor without signing in or openi"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-2-2.jpg",
+          "caption": "Each bouquet currently shown on the visible catalogue listings displays its pric"
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-5-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-8-2.jpg",
+          "caption": "The order confirmation includes an order number"
+        },
+        {
+          "file": "guest-checkout-does-not-allow-sunday-as--fb906d04-5-2.jpg",
+          "caption": "Checking that Sunday shown as the selected delivery date after the selection attempt is absent"
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-2-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-4-3.jpg",
+          "caption": "An order confirmation with an order number exists after a successful online orde"
+        }
+      ]
+    },
+    {
+      "id": "ac-12",
+      "text": "After a successful online order, Sarah receives the order by email.",
+      "state": "cannot_check",
+      "why": "No test exercised this yet, so there is nothing to show.",
+      "quote": "5. After a successful order the customer sees an order confirmation with an order number, and Sarah receives the order by email.",
+      "groupTitle": "Receive online orders by email",
+      "strength": "asserted",
+      "observed": [
+        {
+          "label": "The displayed price of",
+          "value": "£42.00"
+        },
+        {
+          "label": "The calendar control state after the Sunday selection attempt",
+          "value": "selected text: Choose a date…"
+        },
+        {
+          "label": "The inline validation message shown for the delivery-date field",
+          "value": "We deliver Monday to Saturday. Sundays are not available."
+        }
+      ],
+      "media": [
+        {
+          "file": "an-out-of-stock-bouquet-does-not-appear--6adffa1e-3-2.jpg",
+          "caption": "Checking that the attempted out-of-stock bouquet present in the basket is absent"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-1-2.jpg",
+          "caption": "At least one bouquet listing is visible to a visitor without signing in or openi"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-2-2.jpg",
+          "caption": "Each bouquet currently shown on the visible catalogue listings displays its pric"
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-5-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-8-2.jpg",
+          "caption": "The order confirmation includes an order number"
+        },
+        {
+          "file": "guest-checkout-does-not-allow-sunday-as--fb906d04-5-2.jpg",
+          "caption": "Checking that Sunday shown as the selected delivery date after the selection attempt is absent"
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-2-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-4-3.jpg",
+          "caption": "An order confirmation with an order number exists after a successful online orde"
+        }
+      ]
+    },
+    {
+      "id": "ac-13",
+      "text": "After a successful online order on the phone checkout path, the customer sees an order confirmation that includes an order number.",
+      "state": "proven",
+      "quote": "5. After a successful order the customer sees an order confirmation with an order number, and Sarah receives the order by email.",
+      "groupTitle": "Receive online orders by email",
+      "strength": "asserted",
+      "observed": [
+        {
+          "label": "The displayed price of",
+          "value": "£42.00"
+        },
+        {
+          "label": "The calendar control state after the Sunday selection attempt",
+          "value": "selected text: Choose a date…"
+        },
+        {
+          "label": "The inline validation message shown for the delivery-date field",
+          "value": "We deliver Monday to Saturday. Sundays are not available."
+        }
+      ],
+      "media": [
+        {
+          "file": "an-out-of-stock-bouquet-does-not-appear--6adffa1e-3-2.jpg",
+          "caption": "Checking that the attempted out-of-stock bouquet present in the basket is absent"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-1-2.jpg",
+          "caption": "At least one bouquet listing is visible to a visitor without signing in or openi"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-2-2.jpg",
+          "caption": "Each bouquet currently shown on the visible catalogue listings displays its pric"
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-5-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-8-2.jpg",
+          "caption": "The order confirmation includes an order number"
+        },
+        {
+          "file": "guest-checkout-does-not-allow-sunday-as--fb906d04-5-2.jpg",
+          "caption": "Checking that Sunday shown as the selected delivery date after the selection attempt is absent"
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-2-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-4-3.jpg",
+          "caption": "An order confirmation with an order number exists after a successful online orde"
+        }
+      ]
+    },
+    {
+      "id": "ac-14",
+      "text": "A visitor can view bouquet listings in the bouquet catalogue.",
+      "state": "cannot_check",
+      "why": "No test exercised this yet, so there is nothing to show.",
+      "quote": "1. A visitor can browse the bouquet catalogue and see the price of every bouquet before adding anything to the basket.",
+      "groupTitle": "Browse bouquet catalogue",
+      "strength": "asserted",
+      "observed": [
+        {
+          "label": "The displayed price of",
+          "value": "£42.00"
+        },
+        {
+          "label": "The calendar control state after the Sunday selection attempt",
+          "value": "selected text: Choose a date…"
+        },
+        {
+          "label": "The inline validation message shown for the delivery-date field",
+          "value": "We deliver Monday to Saturday. Sundays are not available."
+        }
+      ],
+      "media": [
+        {
+          "file": "an-out-of-stock-bouquet-does-not-appear--6adffa1e-3-2.jpg",
+          "caption": "Checking that the attempted out-of-stock bouquet present in the basket is absent"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-1-2.jpg",
+          "caption": "At least one bouquet listing is visible to a visitor without signing in or openi"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-2-2.jpg",
+          "caption": "Each bouquet currently shown on the visible catalogue listings displays its pric"
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-5-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-8-2.jpg",
+          "caption": "The order confirmation includes an order number"
+        },
+        {
+          "file": "guest-checkout-does-not-allow-sunday-as--fb906d04-5-2.jpg",
+          "caption": "Checking that Sunday shown as the selected delivery date after the selection attempt is absent"
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-2-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-4-3.jpg",
+          "caption": "An order confirmation with an order number exists after a successful online orde"
+        }
+      ]
+    },
+    {
+      "id": "ac-15",
+      "text": "Every bouquet shown in the catalogue displays its price before any add-to-basket action.",
+      "state": "cannot_check",
+      "why": "No test exercised this yet, so there is nothing to show.",
+      "quote": "1. A visitor can browse the bouquet catalogue and see the price of every bouquet before adding anything to the basket.",
+      "groupTitle": "Browse bouquet catalogue",
+      "strength": "asserted",
+      "observed": [
+        {
+          "label": "The displayed price of",
+          "value": "£42.00"
+        },
+        {
+          "label": "The calendar control state after the Sunday selection attempt",
+          "value": "selected text: Choose a date…"
+        },
+        {
+          "label": "The inline validation message shown for the delivery-date field",
+          "value": "We deliver Monday to Saturday. Sundays are not available."
+        }
+      ],
+      "media": [
+        {
+          "file": "an-out-of-stock-bouquet-does-not-appear--6adffa1e-3-2.jpg",
+          "caption": "Checking that the attempted out-of-stock bouquet present in the basket is absent"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-1-2.jpg",
+          "caption": "At least one bouquet listing is visible to a visitor without signing in or openi"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-2-2.jpg",
+          "caption": "Each bouquet currently shown on the visible catalogue listings displays its pric"
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-5-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-8-2.jpg",
+          "caption": "The order confirmation includes an order number"
+        },
+        {
+          "file": "guest-checkout-does-not-allow-sunday-as--fb906d04-5-2.jpg",
+          "caption": "Checking that Sunday shown as the selected delivery date after the selection attempt is absent"
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-2-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-4-3.jpg",
+          "caption": "An order confirmation with an order number exists after a successful online orde"
+        }
+      ]
+    },
+    {
+      "id": "ac-16",
+      "text": "The storefront discovery experience works on a phone.",
+      "state": "cannot_check",
+      "why": "No test exercised this yet, so there is nothing to show.",
+      "quote": "1. A visitor can browse the bouquet catalogue and see the price of every bouquet before adding anything to the basket.",
+      "groupTitle": "Browse bouquet catalogue",
+      "strength": "asserted",
+      "observed": [
+        {
+          "label": "The displayed price of",
+          "value": "£42.00"
+        },
+        {
+          "label": "The calendar control state after the Sunday selection attempt",
+          "value": "selected text: Choose a date…"
+        },
+        {
+          "label": "The inline validation message shown for the delivery-date field",
+          "value": "We deliver Monday to Saturday. Sundays are not available."
+        }
+      ],
+      "media": [
+        {
+          "file": "an-out-of-stock-bouquet-does-not-appear--6adffa1e-3-2.jpg",
+          "caption": "Checking that the attempted out-of-stock bouquet present in the basket is absent"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-1-2.jpg",
+          "caption": "At least one bouquet listing is visible to a visitor without signing in or openi"
+        },
+        {
+          "file": "browse-the-bouquet-catalogue-and-confirm-c10e9b3e-2-2.jpg",
+          "caption": "Each bouquet currently shown on the visible catalogue listings displays its pric"
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-5-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "guest-bouquet-checkout-succeeds-on-a-pho-ae567939-8-2.jpg",
+          "caption": "The order confirmation includes an order number"
+        },
+        {
+          "file": "guest-checkout-does-not-allow-sunday-as--fb906d04-5-2.jpg",
+          "caption": "Checking that Sunday shown as the selected delivery date after the selection attempt is absent"
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-2-6.jpg",
+          "caption": "Select \"Friday 21 August\" in \"Delivery date\""
+        },
+        {
+          "file": "successful-phone-checkout-shows-an-order-9a13a4d2-4-3.jpg",
+          "caption": "An order confirmation with an order number exists after a successful online orde"
+        }
+      ]
+    }
+  ],
+  "packOffered": true,
+  "pinHash": "a8542f31af65f935260edf4a0ed647b0b8bbb4d71003c681759e8c2484acbfaf",
+  "pinSalt": "4ca0d0298fdc8dc650d80e6a15fcf31c"
+}

@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import { Command } from 'commander';
 import pc from 'picocolors';
 import { init } from './commands/init.ts';
+import { brief } from './commands/brief.ts';
 import { publish } from './commands/publish.ts';
 import { verify } from './commands/verify.ts';
 import { KaneUnavailableError } from './kane/proc.ts';
@@ -71,6 +72,20 @@ program
   });
 
 program
+  .command('brief')
+  .description('turn what is not proven into a repair brief for a coding agent')
+  .option('--milestone <n>', 'which milestone to report on', '1')
+  .option('--json', 'machine-readable output', false)
+  .action(async (opts: Record<string, unknown>) => {
+    const milestone = Number.parseInt(String(opts['milestone'] ?? '1'), 10);
+    process.exitCode = await brief({
+      cwd: process.cwd(),
+      milestone: Number.isFinite(milestone) && milestone > 0 ? milestone : 1,
+      json: opts['json'] === true,
+    });
+  });
+
+program
   .command('publish')
   .description('turn a verified milestone into a page your client can open')
   .option('--milestone <n>', 'which milestone to publish', '1')
@@ -113,3 +128,10 @@ async function main(): Promise<void> {
 }
 
 await main();
+
+// Kane leaves a detached Chrome behind, and anything still holding a handle on
+// its pipes would keep this process alive indefinitely. `runKane` releases what
+// it owns; this is the backstop, after stdout has been flushed.
+process.stdout.write('', () => {
+  process.exit(process.exitCode ?? 0);
+});
