@@ -155,6 +155,22 @@ pnpm test        # 22 tests
 pnpm typecheck
 ```
 
+## The video
+
+`video/` builds the three-minute demo programmatically with Remotion. There is no
+screen recorder on the machine this was built on, which turned out to be a better
+constraint than it sounds: every terminal line in the video is verbatim output
+from a real run, and the browser frames are lifted straight out of the sealed
+evidence pack rather than re-staged.
+
+```bash
+pnpm --filter @signedoff/video render     # 1920x1080, 2:58, ~21 min
+bash video/scripts/narrate.sh             # regenerate narration (needs edge-tts)
+```
+
+`narrate.sh` measures each narration clip against its scene budget and reports
+overruns, which is how the opening line got caught at 14.9s against a 15s scene.
+
 ## Reproducing the Kane work
 
 Needs a TestMu AI account (`kane-cli login`) and about 250 credits.
