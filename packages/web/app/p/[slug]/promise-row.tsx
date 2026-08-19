@@ -33,7 +33,7 @@ const STATE = {
   },
 } as const;
 
-export function PromiseRow({ promise }: { promise: BundlePromise }) {
+export function PromiseRow({ promise, slug }: { promise: BundlePromise; slug: string }) {
   const style = STATE[promise.state];
   const hasEvidence = promise.media.length > 0 || promise.observed.length > 0;
 
@@ -105,7 +105,7 @@ export function PromiseRow({ promise }: { promise: BundlePromise }) {
                               plain img keeps the page dependency-free. */}
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
-                            src={`/handover/${promise.id}/${shot.file}`}
+                            src={`/handover/${slug}/${shot.file}`}
                             alt={shot.caption}
                             loading="lazy"
                             className="rounded-lg border border-line w-full"

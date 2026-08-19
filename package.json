@@ -9,9 +9,11 @@
     "node": ">=20"
   },
   "scripts": {
+    "demo": "bash scripts/demo.sh",
     "signedoff": "pnpm --filter @signedoff/cli exec tsx src/index.ts",
     "typecheck": "pnpm -r --parallel typecheck",
-    "test": "pnpm -r --parallel test"
+    "test": "pnpm --filter @signedoff/cli test",
+    "build": "pnpm -r --parallel build"
   },
   "devDependencies": {
     "@types/node": "26.2.0",

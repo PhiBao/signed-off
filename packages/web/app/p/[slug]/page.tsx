@@ -125,7 +125,7 @@ export default async function HandoverPage({ params }: PageProps) {
             )}
             <ul>
               {group.promises.map((promise) => (
-                <PromiseRow key={promise.id} promise={promise} />
+                <PromiseRow key={promise.id} promise={promise} slug={bundle.slug} />
               ))}
             </ul>
           </section>

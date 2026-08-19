@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "slug": "bloom-vine-florist-website-m2-0c2de1db67c8",
+  "slug": "bloom-vine-florist-website-m2-c70f4f331c6e",
   "title": "Bloom & Vine Florist Website",
   "client": "Sarah Whitmore",
   "milestone": 2,
-  "createdAt": "2026-08-19T17:37:14.715Z",
+  "createdAt": "2026-08-19T17:39:28.193Z",
   "run": {
     "id": "39e23ee2-a8a8-4865-a28d-b1d54aabc414",
     "startedAt": "2026-08-19T17:33:46.175Z",
@@ -921,7 +921,7 @@
       ]
     }
   ],
-  "packOffered": true,
-  "pinHash": "a8542f31af65f935260edf4a0ed647b0b8bbb4d71003c681759e8c2484acbfaf",
-  "pinSalt": "4ca0d0298fdc8dc650d80e6a15fcf31c"
+  "packOffered": false,
+  "pinHash": "e5a4b3e5b1c6bb500ab99df88b3e518bb9ef5c107ac55b4ca59a4d9f4ff19bd9",
+  "pinSalt": "235b16118d8b68bbb9753e812772c665"
 }

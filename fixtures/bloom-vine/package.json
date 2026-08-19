@@ -2,7 +2,7 @@
   "name": "@signedoff/bloom-vine",
   "version": "0.1.0",
   "private": true,
-  "description": "Bloom & Vine — the florist storefront under test. Deliberately ships one real bug.",
+  "description": "Bloom & Vine \u2014 the florist storefront under test. Deliberately ships one real bug.",
   "scripts": {
     "dev": "next dev --port 4311",
     "build": "next build",

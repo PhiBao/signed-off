@@ -96,26 +96,21 @@ export async function publish(options: PublishOptions): Promise<number> {
   await mkdir(bundleDir, { recursive: true });
   await writeFile(join(bundleDir, `${slug}.json`), `${JSON.stringify(withPin, null, 2)}\n`, 'utf8');
 
-  let written = 0;
-  for (const promise of bundle.promises) {
-    if (promise.media.length === 0) continue;
-    const dir = join(options.webRoot, 'public', 'handover', promise.id);
-    await mkdir(dir, { recursive: true });
+  // One directory per bundle, one copy of each screenshot. Writing them per
+  // criterion duplicated the same images sixteen times.
+  const mediaDir = join(options.webRoot, 'public', 'handover', slug);
+  await mkdir(mediaDir, { recursive: true });
 
-    for (const shot of promise.media) {
-      const source = media.find((m) => m.file === shot.file);
-      if (source === undefined) continue;
-      const data = pack.readEntry(source.packPath);
-      if (data === undefined) continue;
-      await writeFile(join(dir, shot.file), data);
-      written += 1;
-    }
+  let written = 0;
+  for (const source of media) {
+    const data = pack.readEntry(source.packPath);
+    if (data === undefined) continue;
+    await writeFile(join(mediaDir, source.file), data);
+    written += 1;
   }
 
   if (options.includePack) {
-    const dir = join(options.webRoot, 'public', 'handover', slug);
-    await mkdir(dir, { recursive: true });
-    await writeFile(join(dir, 'evidence.evidence'), await readFile(packPath));
+    await writeFile(join(mediaDir, 'evidence.evidence'), await readFile(packPath));
   }
 
   const url = `${options.baseUrl.replace(/\/$/, '')}/p/${slug}`;
