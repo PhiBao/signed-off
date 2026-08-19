@@ -1,0 +1,1 @@
+{"label":"ac","content":{"text":"The end-to-end guest checkout flow can be completed on a phone-sized web surface.","kind":"presence","risk":"high","derived":true,"expected_answer":{"operator":"exists","operand":"a successful end-to-end guest checkout on a phone-sized web surface"}}}

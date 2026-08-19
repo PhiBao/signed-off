@@ -1,0 +1,1 @@
+{"label":"ac","content":{"text":"A successful order is sent to Sarah by email.","kind":"propagation","risk":"high","derived":true,"expected_answer":{"operator":"exists","operand":"the successful order in an email sent to Sarah"}}}

@@ -1,0 +1,19 @@
+node_modules/
+dist/
+.next/
+out/
+*.tsbuildinfo
+.DS_Store
+*.log
+
+# Local env / secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Signed Off local project state (per-maker, machine-specific)
+.signedoff/local.json
+
+# Kane session scratch. NOTE: `output-*/` and `.context/` ARE committed on
+# purpose — that is how replay recordings and the assurance graph travel.
+.testmuai/sessions/

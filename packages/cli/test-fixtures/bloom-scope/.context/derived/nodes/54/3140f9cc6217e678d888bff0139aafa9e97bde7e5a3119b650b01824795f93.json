@@ -1,0 +1,1 @@
+{"label":"ac","content":{"text":"Delivery date selection does not allow Sundays.","kind":"forbidden-presence","risk":"high","derived":true,"expected_answer":{"operator":"exists","operand":"a selectable Sunday delivery date"}}}

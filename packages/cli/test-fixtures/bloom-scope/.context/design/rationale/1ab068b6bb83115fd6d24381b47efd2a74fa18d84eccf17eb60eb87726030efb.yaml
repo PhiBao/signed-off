@@ -1,0 +1,9 @@
+anchor: ac-5
+combinatorial:
+  reason: over surface × checkout_mode × delivery_date because money risk applied; the tool returned two unique combinations and this scenario covers the Sunday-forbidden combination. Applied negative and web-form techniques because the source stated a specific forbidden date choice rather than an alternate successful outcome. dedupe_candidates found no duplicate candidate, and graph_search_similar_batch found no existing scenario-level reuse candidate.
+  strength: 3
+deferred_bindings: 0
+expected_how: 'expected_mode: authored'
+profile_family: unspecified
+surface_state: absent
+technique: Derived from covering_array strength=3 over surface × checkout_mode × delivery_date because money risk applied; the tool returned two unique combinations and this scenario covers the Sunday-forbidden combination. Applied negative and web-form techniques because the source stated a specific forbidden date choice rather than an alternate successful outcome. dedupe_candidates found no duplicate candidate, and graph_search_similar_batch found no existing scenario-level reuse candidate.

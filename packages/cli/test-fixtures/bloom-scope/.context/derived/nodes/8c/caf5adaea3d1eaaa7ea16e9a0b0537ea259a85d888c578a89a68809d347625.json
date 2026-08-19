@@ -1,0 +1,1 @@
+{"label":"ac","content":{"text":"Checkout completion does not require account sign-in or registration.","kind":"forbidden-presence","risk":"high","derived":true,"expected_answer":{"operator":"exists","operand":"mandatory account sign-in or registration before successful order placement"}}}

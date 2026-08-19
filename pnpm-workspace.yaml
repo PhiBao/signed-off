@@ -1,0 +1,10 @@
+packages:
+  - "packages/*"
+  - "fixtures/*"
+
+allowBuilds:
+  esbuild: set this to true or false
+
+# tsx needs esbuild's platform binary, which is installed by a build script.
+onlyBuiltDependencies:
+  - esbuild

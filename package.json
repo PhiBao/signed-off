@@ -1,0 +1,21 @@
+{
+  "name": "signedoff",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Attach client-readable proof of delivery to freelance web milestones.",
+  "license": "MIT",
+  "packageManager": "pnpm@11.1.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "signedoff": "pnpm --filter @signedoff/cli exec tsx src/index.ts",
+    "typecheck": "pnpm -r --parallel typecheck",
+    "test": "pnpm -r --parallel test"
+  },
+  "devDependencies": {
+    "@types/node": "26.2.0",
+    "tsx": "4.23.12",
+    "typescript": "7.0.2"
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "read_basis": "sha256:ae937bcc0fbe0ab770ff4d644b01f1c1bdcfc4482c1bf65433a80004342f02a2",
+  "source": {
+    "source_id": "scope",
+    "source_cid": "sha256:49c7ac021c5a4676739e96fa67e4c62d1a034dd9cf64d91a7bb57d22c1ab8335"
+  },
+  "use_cases": [
+    {
+      "temp_ref": "n1",
+      "title": "Place an order as a guest",
+      "description": "A visitor completes the bouquet purchase flow without creating an account, chooses a delivery date that excludes Sundays, finishes checkout as a guest, and after a successful order sees an order confirmation with an order number while Sarah receives the order by email; the source also requires this full flow to work on a phone because most customers arrive from Instagram.",
+      "summary": "Complete guest checkout for bouquet orders",
+      "actors": [
+        "visitor"
+      ],
+      "value": "Captures orders and revenue without staff involvement while fitting one-off buyers who do not want an account.",
+      "risk": "high",
+      "cite": {
+        "anchor": "L21-L22",
+        "quote": "3. A visitor can complete checkout as a guest — we agreed no account is"
+      },
+      "cites": [
+        {
+          "anchor": "L21-L22",
+          "quote": "3. A visitor can complete checkout as a guest — we agreed no account is"
+        },
+        {
+          "anchor": "L23-L24",
+          "quote": "4. Delivery date selection: the customer must not be able to choose a Sunday,"
+        },
+        {
+          "anchor": "L25-L26",
+          "quote": "order number, and Sarah receives the order by email."
+        },
+        {
+          "anchor": "L28-L29",
+          "quote": "7. The whole flow above must work on a phone. Sarah says most of her customers"
+        }
+      ],
+      "criteria": [
+        {
+          "text": "checkout can be completed as a guest with no account required",
+          "cite": {
+            "anchor": "L21-L22",
+            "quote": "required, because Sarah's customers are mostly one-off buyers."
+          }
+        },
+        {
+          "text": "delivery date selection forbids Sundays",
+          "cite": {
+            "anchor": "L23-L24",
+            "quote": "since Sarah does not deliver on Sundays."
+          }
+        },
+        {
+          "text": "successful orders show an order confirmation with an order number and send the order to Sarah by email",
+          "cite": {
+            "anchor": "L25-L26",
+            "quote": "order number, and Sarah receives the order by email."
+          }
+        },
+        {
+          "text": "the end-to-end checkout flow works on a phone",
+          "cite": {
+            "anchor": "L28-L29",
+            "quote": "7. The whole flow above must work on a phone. Sarah says most of her customers"
+          }
+        }
+      ],
+      "depends_on_hint": [
+        "n2"
+      ]
+    },
+    {
+      "temp_ref": "n2",
+      "title": "Add an available bouquet to the basket",
+      "description": "A visitor adds a bouquet to the basket only when that bouquet is in stock, sees the basket total update to reflect what was added, and can perform this basket step on a phone as part of the storefront flow.",
+      "summary": "Add in-stock bouquets to the basket",
+      "actors": [
+        "visitor"
+      ],
+      "value": "Lets customers build an order accurately while preventing baskets that Sarah cannot fulfill.",
+      "risk": "med",
+      "cite": {
+        "anchor": "L19-L20",
+        "quote": "2. A visitor can add a bouquet to the basket, and the basket total updates to"
+      },
+      "cites": [
+        {
+          "anchor": "L19-L20",
+          "quote": "2. A visitor can add a bouquet to the basket, and the basket total updates to"
+        },
+        {
+          "anchor": "L27-L27",
+          "quote": "6. If a bouquet is out of stock it must not be addable to the basket."
+        },
+        {
+          "anchor": "L28-L29",
+          "quote": "7. The whole flow above must work on a phone. Sarah says most of her customers"
+        }
+      ],
+      "criteria": [
+        {
+          "text": "basket total updates to reflect added bouquets",
+          "cite": {
+            "anchor": "L19-L20",
+            "quote": "reflect what they added."
+          }
+        },
+        {
+          "text": "out-of-stock bouquets are not addable to the basket",
+          "cite": {
+            "anchor": "L27-L27",
+            "quote": "6. If a bouquet is out of stock it must not be addable to the basket."
+          }
+        },
+        {
+          "text": "the basket flow works on a phone",
+          "cite": {
+            "anchor": "L28-L29",
+            "quote": "7. The whole flow above must work on a phone. Sarah says most of her customers"
+          }
+        }
+      ],
+      "depends_on_hint": [
+        "n3"
+      ]
+    },
+    {
+      "temp_ref": "n3",
+      "title": "Browse the bouquet catalogue and prices",
+      "description": "A visitor browses the bouquet catalogue, sees the price of every bouquet before deciding whether to add anything to the basket, and can do that browsing on a phone so ordering is possible outside staffed shop hours.",
+      "summary": "Browse bouquets with visible prices",
+      "actors": [
+        "visitor"
+      ],
+      "value": "Helps customers self-serve product discovery and purchase decisions without calling or messaging the shop.",
+      "risk": "low",
+      "cite": {
+        "anchor": "L17-L18",
+        "quote": "1. A visitor can browse the bouquet catalogue and see the price of every bouquet"
+      },
+      "cites": [
+        {
+          "anchor": "L17-L18",
+          "quote": "1. A visitor can browse the bouquet catalogue and see the price of every bouquet"
+        },
+        {
+          "anchor": "L28-L29",
+          "quote": "7. The whole flow above must work on a phone. Sarah says most of her customers"
+        },
+        {
+          "anchor": "L9-L11",
+          "quote": "The new site needs"
+        }
+      ],
+      "criteria": [
+        {
+          "text": "the catalogue shows the price of every bouquet before basket addition",
+          "cite": {
+            "anchor": "L17-L18",
+            "quote": "before adding anything to the basket."
+          }
+        },
+        {
+          "text": "catalogue browsing works on a phone",
+          "cite": {
+            "anchor": "L28-L29",
+            "quote": "7. The whole flow above must work on a phone. Sarah says most of her customers"
+          }
+        }
+      ],
+      "depends_on_hint": []
+    }
+  ]
+}

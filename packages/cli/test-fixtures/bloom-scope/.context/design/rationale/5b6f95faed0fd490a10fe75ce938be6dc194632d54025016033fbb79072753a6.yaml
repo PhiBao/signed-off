@@ -1,0 +1,9 @@
+anchor: ac-3
+combinatorial:
+  reason: over surface × checkout_mode × delivery_date because money risk applied; the tool returned two unique combinations and this scenario covers the valid non-Sunday combination. Applied the stateful-flow and web-form profiles because the source described an end-to-end checkout flow with date selection and completion on a phone. dedupe_candidates found no duplicate candidate, and graph_search_similar_batch found no existing scenario-level reuse candidate.
+  strength: 3
+deferred_bindings: 0
+expected_how: 'expected_mode: authored'
+profile_family: unspecified
+surface_state: absent
+technique: Derived from covering_array strength=3 over surface × checkout_mode × delivery_date because money risk applied; the tool returned two unique combinations and this scenario covers the valid non-Sunday combination. Applied the stateful-flow and web-form profiles because the source described an end-to-end checkout flow with date selection and completion on a phone. dedupe_candidates found no duplicate candidate, and graph_search_similar_batch found no existing scenario-level reuse candidate.
