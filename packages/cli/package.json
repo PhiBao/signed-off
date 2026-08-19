@@ -14,11 +14,13 @@
     "test": "tsx --test src/**/*.test.ts"
   },
   "dependencies": {
+    "adm-zip": "0.5.16",
     "commander": "15.0.0",
     "picocolors": "1.1.1",
     "yaml": "2.9.0"
   },
   "devDependencies": {
+    "@types/adm-zip": "^0.5.8",
     "@types/node": "26.2.0",
     "tsx": "4.23.12",
     "typescript": "7.0.2"
