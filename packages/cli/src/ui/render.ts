@@ -174,6 +174,22 @@ export function renderVerdicts(promises: readonly DeliveryPromise[]): string {
   return out.join('\n');
 }
 
+/** The client-facing headline, in the language a client would use. */
+export function renderSummary(summary: {
+  proven: number;
+  notProven: number;
+  cannotCheck: number;
+  total: number;
+}): string {
+  const parts: string[] = [];
+  parts.push(pc.bold(`  ${summary.proven} of ${summary.total} promises proven`));
+
+  if (summary.notProven > 0) parts.push(pc.red(`  ${summary.notProven} not proven`));
+  if (summary.cannotCheck > 0) parts.push(pc.yellow(`  ${summary.cannotCheck} couldn't be checked`));
+
+  return parts.join('\n');
+}
+
 /**
  * A live progress line, rewritten in place when the terminal supports it.
  *

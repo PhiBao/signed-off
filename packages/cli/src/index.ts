@@ -1,7 +1,10 @@
 #!/usr/bin/env node
+import { resolve } from 'node:path';
 import { Command } from 'commander';
 import pc from 'picocolors';
 import { init } from './commands/init.ts';
+import { publish } from './commands/publish.ts';
+import { verify } from './commands/verify.ts';
 import { KaneUnavailableError } from './kane/proc.ts';
 import { NoContextError } from './kane/graph.ts';
 import { NoProjectError } from './domain/project.ts';
@@ -45,6 +48,44 @@ program
       ...(typeof opts['title'] === 'string' ? { title: opts['title'] } : {}),
       max: Number.isFinite(max) && max > 0 ? max : 4,
       skipDesign: opts['skipDesign'] === true,
+      json: opts['json'] === true,
+    });
+  });
+
+program
+  .command('verify')
+  .description('check the promises against a real build')
+  .requiredOption('--url <url>', 'where the build is running')
+  .option('--milestone <n>', 'which milestone this covers', '1')
+  .option('--show-browser', 'watch the browser instead of running headless', false)
+  .option('--json', 'machine-readable output', false)
+  .action(async (opts: Record<string, unknown>) => {
+    const milestone = Number.parseInt(String(opts['milestone'] ?? '1'), 10);
+    process.exitCode = await verify({
+      cwd: process.cwd(),
+      url: String(opts['url']),
+      milestone: Number.isFinite(milestone) && milestone > 0 ? milestone : 1,
+      headless: opts['showBrowser'] !== true,
+      json: opts['json'] === true,
+    });
+  });
+
+program
+  .command('publish')
+  .description('turn a verified milestone into a page your client can open')
+  .option('--milestone <n>', 'which milestone to publish', '1')
+  .option('--web-root <path>', 'where the handover site lives', '../web')
+  .option('--base-url <url>', 'public base URL of the handover site', 'http://localhost:4300')
+  .option('--include-pack', 'also offer the sealed evidence file for download', false)
+  .option('--json', 'machine-readable output', false)
+  .action(async (opts: Record<string, unknown>) => {
+    const milestone = Number.parseInt(String(opts['milestone'] ?? '1'), 10);
+    process.exitCode = await publish({
+      cwd: process.cwd(),
+      milestone: Number.isFinite(milestone) && milestone > 0 ? milestone : 1,
+      webRoot: resolve(process.cwd(), String(opts['webRoot'] ?? '../web')),
+      baseUrl: String(opts['baseUrl'] ?? 'http://localhost:4300'),
+      includePack: opts['includePack'] === true,
       json: opts['json'] === true,
     });
   });

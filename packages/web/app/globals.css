@@ -1,0 +1,64 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: ui-serif, Georgia, 'Times New Roman', serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --color-ink: #1b1f1d;
+  --color-muted: #66716c;
+  --color-line: #e3e6e3;
+  --color-paper: #fbfaf8;
+  --color-card: #ffffff;
+
+  /* Three verdicts, three distinct hues — never relied on alone. */
+  --color-proven: #2f6b4f;
+  --color-proven-soft: #eef5f1;
+  --color-unproven: #a8322f;
+  --color-unproven-soft: #fbeeed;
+  --color-unknown: #8a6212;
+  --color-unknown-soft: #fbf4e6;
+}
+
+html {
+  background-color: var(--color-paper);
+}
+
+body {
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Disclosure arrows are provided by the layout, not the browser default. */
+summary {
+  cursor: pointer;
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  details {
+    display: none;
+  }
+}
