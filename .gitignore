@@ -19,3 +19,4 @@ out/
 .testmuai/sessions/
 packages/web/data/signoffs/
 packages/web/public/handover/
+video/out/

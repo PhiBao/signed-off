@@ -1,0 +1,22 @@
+{
+  "name": "@signedoff/video",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The three-minute demo video, composed programmatically from real runs.",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render SignedOff out/signed-off.mp4 --browser-executable=$HOME/.local/bin/google-chrome --gl=swangle --concurrency=4",
+    "still": "remotion still SignedOff out/frame.png --browser-executable=$HOME/.local/bin/google-chrome --gl=swangle"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.512",
+    "@remotion/google-fonts": "4.0.512",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "remotion": "4.0.512"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "typescript": "7.0.2"
+  }
+}
