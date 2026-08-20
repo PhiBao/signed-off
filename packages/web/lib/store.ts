@@ -17,7 +17,11 @@ import { join } from 'node:path';
  *   public/handover/<slug>/*.jpg screenshots
  */
 
-const DATA_DIR = process.env['SIGNEDOFF_DATA_DIR'] ?? join(process.cwd(), 'data');
+const DATA_DIR = process.env['SIGNEDOFF_DATA_DIR'] ?? (
+  process.env['VERCEL'] !== undefined
+    ? join(process.cwd(), 'public', 'api')
+    : join(process.cwd(), 'data')
+);
 
 export interface BundleMedia {
   readonly file: string;
