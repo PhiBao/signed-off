@@ -22,3 +22,4 @@ packages/web/public/handover/
 video/out/
 video/recordings/*.mp4
 video/recordings/*.gif
+video/
