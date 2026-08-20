@@ -1,0 +1,10 @@
+{
+  "kind": "analyze",
+  "status": "passed",
+  "summary": "analyze: Checking whether any bouquet is present in the basket contents",
+  "duration_ms": 81.0,
+  "url": "http://localhost:4311/basket",
+  "action_id": "fda8eee8-a0ec-4758-9582-c5a45ecfe105",
+  "ordinal": 3,
+  "id": "3-1"
+}

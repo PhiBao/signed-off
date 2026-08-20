@@ -35,20 +35,32 @@ export interface BriefOptions {
   readonly cwd: string;
   readonly milestone: number;
   readonly json: boolean;
+  /**
+   * Read a specific evidence pack instead of the milestone's current one.
+   * Useful for looking back at what a previous run found — the record is
+   * immutable, so an earlier pack stays readable after the fix has landed.
+   */
+  readonly pack?: string;
 }
 
 export async function brief(options: BriefOptions): Promise<number> {
   const { cwd, json } = options;
   const project = await readProject(cwd);
 
-  const milestone = project.milestones.find((m) => m.n === options.milestone);
-  if (milestone?.packPath === undefined) {
-    ui.fail(`Milestone ${options.milestone} has not been verified yet.`);
-    ui.info(pc.dim('  Run:  signedoff verify --url <url>'));
-    return 2;
+  let packPath: string;
+  if (options.pack !== undefined) {
+    packPath = resolve(cwd, options.pack);
+  } else {
+    const milestone = project.milestones.find((m) => m.n === options.milestone);
+    if (milestone?.packPath === undefined) {
+      ui.fail(`Milestone ${options.milestone} has not been verified yet.`);
+      ui.info(pc.dim('  Run:  signedoff verify --url <url>'));
+      return 2;
+    }
+    packPath = resolve(cwd, milestone.packPath);
   }
 
-  const pack = readPack(resolve(cwd, milestone.packPath));
+  const pack = readPack(packPath);
   const graph = await loadGraph(cwd);
   const documentText = await readFile(join(cwd, project.sourceDocument), 'utf8').catch(() => '');
   const inventory = buildInventory(graph, documentText);

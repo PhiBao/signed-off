@@ -27,8 +27,8 @@ command -v edge-tts >/dev/null 2>&1 || {
 
 # Scene budgets, in seconds. Must match video/src/config.ts.
 declare -A BUDGET=(
-  [hook]=15 [falsePass]=27 [problem]=13 [init]=26 [verify]=22
-  [handover]=24 [brief]=20 [green]=18 [accept]=13
+  [hook]=16 [falsePass]=27 [problem]=11 [document]=13 [terminal]=38
+  [browser]=21 [green]=15 [accept]=12
 )
 
 echo "Rendering narration with $VOICE"

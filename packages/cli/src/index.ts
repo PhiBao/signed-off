@@ -75,12 +75,14 @@ program
   .command('brief')
   .description('turn what is not proven into a repair brief for a coding agent')
   .option('--milestone <n>', 'which milestone to report on', '1')
+  .option('--pack <path>', 'read a specific evidence pack instead of the milestone\'s current one')
   .option('--json', 'machine-readable output', false)
   .action(async (opts: Record<string, unknown>) => {
     const milestone = Number.parseInt(String(opts['milestone'] ?? '1'), 10);
     process.exitCode = await brief({
       cwd: process.cwd(),
       milestone: Number.isFinite(milestone) && milestone > 0 ? milestone : 1,
+      ...(typeof opts['pack'] === 'string' ? { pack: opts['pack'] } : {}),
       json: opts['json'] === true,
     });
   });

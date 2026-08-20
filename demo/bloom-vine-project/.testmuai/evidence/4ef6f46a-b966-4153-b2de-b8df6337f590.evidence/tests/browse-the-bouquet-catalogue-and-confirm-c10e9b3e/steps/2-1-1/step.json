@@ -1,0 +1,10 @@
+{
+  "kind": "analyze",
+  "status": "passed",
+  "summary": "analyze: Checking whether at least one bouquet listing is present in the main content",
+  "duration_ms": 147.0,
+  "url": "http://localhost:4311/",
+  "action_id": "dceec993-69cc-45ec-abe7-558da07a09b5",
+  "ordinal": 2,
+  "id": "1-1"
+}

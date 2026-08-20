@@ -1,0 +1,25 @@
+{
+  "run_id": "replay",
+  "test_id": "test",
+  "objective": "Attempt to add {{out_of_stock_bouquet}} to the basket through any product action the storefront exposes for that bouquet.",
+  "start_url": "",
+  "start_time": "2026-08-19T22:35:21.479302+00:00",
+  "config": {
+    "reasoning_provider": "replay",
+    "reasoning_model": "replay",
+    "vision_provider": "replay",
+    "vision_model": "replay",
+    "screen_width": 1920,
+    "screen_height": 993,
+    "max_steps": 0
+  },
+  "credits_consumed": 0.0,
+  "steps": [],
+  "errors": [],
+  "end_time": "2026-08-19T22:35:21.487448+00:00",
+  "total_duration_ms": 6.751536999217933,
+  "final_status": "passed",
+  "final_url": "http://localhost:4311/",
+  "total_steps": 0,
+  "reason": "replay completed"
+}

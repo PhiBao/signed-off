@@ -1,0 +1,10 @@
+{
+  "kind": "assert",
+  "status": "passed",
+  "summary": "assert: each bouquet currently shown on the visible catalogue listings displays its pric",
+  "duration_ms": 60.4,
+  "url": "http://localhost:4311/",
+  "action_id": "1ab0365d-9db1-4c00-977b-88b2bfe903b5",
+  "ordinal": 5,
+  "id": "2-2"
+}

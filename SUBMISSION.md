@@ -26,7 +26,12 @@ proven). The second is after the coding agent fixed it (11 of 16, 0 not proven).
 
 ## Demo video
 
-3 minutes exactly (2:58). YouTube — **unlisted**, link tested in a private window.
+**2:33.** YouTube — **unlisted**, link tested in a private window.
+
+Two of the eight scenes are genuine screen recordings rather than composed cards:
+36s of a real Kane session captured with asciinema over an actual pty, and 20s of
+the real handover page captured through Chrome DevTools screencast. Every number
+and every line of output on screen came from a real run.
 
 ## One paragraph
 
@@ -83,3 +88,14 @@ of `signedoff brief` in the closed-loop demo.
   validate it yourself.
 - Reproducing the Kane work needs `kane-cli login` and ~250 credits; see the
   README section "Reproducing the Kane work".
+
+## Which lane
+
+**Requirements that test themselves.**
+
+It matches that lane's description almost line by line: start from the document
+rather than the app, cite every claim back to the source, design acceptance
+criteria then scenarios then one test each as committable `_test.md` files, and
+measure coverage against acceptance criteria instead of test counts. Signed Off
+adds the part the lane does not mention — turning that coverage into an artifact
+the person paying can read and sign.

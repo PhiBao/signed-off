@@ -1,0 +1,48 @@
+{
+  "run_id": "replay",
+  "test_id": "test",
+  "objective": "Confirm 'the attempted out-of-stock bouquet present in the basket' does NOT appear (forbidden-presence) \u2014 the stated promise: After a visitor attempts to add an out-of-stock bouquet, that bouquet is not present in the basket.",
+  "start_url": "",
+  "start_time": "2026-08-19T22:35:22.146318+00:00",
+  "config": {
+    "reasoning_provider": "replay",
+    "reasoning_model": "replay",
+    "vision_provider": "replay",
+    "vision_model": "replay",
+    "screen_width": 1920,
+    "screen_height": 993,
+    "max_steps": 2
+  },
+  "credits_consumed": 0.0,
+  "steps": [
+    {
+      "step": 1,
+      "duration_ms": 80.6,
+      "url": "http://localhost:4311/basket",
+      "status": "passed",
+      "step_file": "step_001.json",
+      "action_type": "analyze",
+      "action_target": "Checking whether any bouquet is present in the basket contents",
+      "success": true,
+      "method": "action"
+    },
+    {
+      "step": 2,
+      "duration_ms": 41.3,
+      "url": "http://localhost:4311/basket",
+      "status": "passed",
+      "step_file": "step_002.json",
+      "action_type": "assert",
+      "action_target": "'the attempted out-of-stock bouquet present in the basket' does NOT appear (forb",
+      "success": true,
+      "method": "assertion"
+    }
+  ],
+  "errors": [],
+  "end_time": "2026-08-19T22:35:22.277928+00:00",
+  "total_duration_ms": 130.0447339999664,
+  "final_status": "passed",
+  "final_url": "http://localhost:4311/basket",
+  "total_steps": 2,
+  "reason": "replay completed"
+}

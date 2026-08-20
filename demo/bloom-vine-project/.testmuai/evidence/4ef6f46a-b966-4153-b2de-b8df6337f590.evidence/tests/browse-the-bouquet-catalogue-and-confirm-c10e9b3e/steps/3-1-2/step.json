@@ -1,0 +1,10 @@
+{
+  "kind": "assert",
+  "status": "passed",
+  "summary": "assert: at least one bouquet listing is visible to a visitor without signing in or openi",
+  "duration_ms": 59.8,
+  "url": "http://localhost:4311/",
+  "action_id": "1d66977d-0fcf-4502-a4a5-58a8d32d8599",
+  "ordinal": 3,
+  "id": "1-2"
+}

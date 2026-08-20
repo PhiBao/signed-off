@@ -1,0 +1,10 @@
+{
+  "kind": "assert",
+  "status": "passed",
+  "summary": "assert: 'the attempted out-of-stock bouquet present in the basket' does NOT appear (forb",
+  "duration_ms": 41.8,
+  "url": "http://localhost:4311/basket",
+  "action_id": "ef93227e-25f6-4273-bdf4-ae7ebf78b322",
+  "ordinal": 4,
+  "id": "3-2"
+}

@@ -1,0 +1,10 @@
+{
+  "kind": "click",
+  "status": "passed",
+  "summary": "click: Clicking Basket link in the top-right header",
+  "duration_ms": 638.7,
+  "url": "http://localhost:4311/",
+  "action_id": "9c433abb-dfaa-4903-8876-b8f6976482e5",
+  "ordinal": 2,
+  "id": "2-1"
+}

@@ -1,0 +1,10 @@
+{
+  "kind": "navigate",
+  "status": "passed",
+  "summary": "navigate: Navigate to {{global.start_url}}",
+  "duration_ms": 196.3,
+  "url": "chrome://new-tab-page/",
+  "action_id": "15583530-1d38-4c8a-8b44-65cf6b5a9c39",
+  "ordinal": 1,
+  "id": "0-1"
+}

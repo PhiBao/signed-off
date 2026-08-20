@@ -157,19 +157,36 @@ pnpm typecheck
 
 ## The video
 
-`video/` builds the three-minute demo programmatically with Remotion. There is no
-screen recorder on the machine this was built on, which turned out to be a better
-constraint than it sounds: every terminal line in the video is verbatim output
-from a real run, and the browser frames are lifted straight out of the sealed
-evidence pack rather than re-staged.
+`video/` builds the three-minute demo. Two of its eight scenes are **genuine screen
+recordings**, not composed cards:
+
+| | |
+|---|---|
+| `terminal.mp4` | 36s of a real Kane session, captured with asciinema over an actual pty |
+| `browser.mp4` | 20s of the real handover page, captured through Chrome DevTools |
+
+Getting there took some doing. This machine has no ffmpeg, no Xvfb and no
+compositor, so a visible browser window never reaches the X root and `x11grab`
+records nothing but black. DevTools screencast solves it properly — frames come
+straight out of the real renderer while the page is driven with real input
+events. Three takes died before the fourth worked: `git diff` opened a pager and
+sat on `(END)`; `kane-cli testmd run` ends with an interactive *"View evidence in
+browser? (y/N)"* prompt that blocks under a recorded pty; and the click target
+selector matched the headline bullet "2 are **not proven** yet" instead of a
+promise row.
 
 ```bash
-pnpm --filter @signedoff/video render     # 1920x1080, 2:58, ~21 min
-bash video/scripts/narrate.sh             # regenerate narration (needs edge-tts)
+bash video/scripts/record-session.sh      # the terminal take (real Kane)
+node video/scripts/record-browser.mjs <url> /tmp/frames
+bash video/scripts/narrate.sh             # narration (needs edge-tts)
+pnpm --filter @signedoff/video render     # 1920x1080, 2:33, ~14 min
 ```
 
 `narrate.sh` measures each narration clip against its scene budget and reports
-overruns, which is how the opening line got caught at 14.9s against a 15s scene.
+overruns, which is how two lines got caught running past their cuts. Duration is
+read from the MP3 frame headers since there is no ffprobe by default — the first
+parser assumed MPEG-1 and under-reported by 2.2×, because edge-tts emits MPEG-2
+Layer III at 24 kHz.
 
 ## Reproducing the Kane work
 

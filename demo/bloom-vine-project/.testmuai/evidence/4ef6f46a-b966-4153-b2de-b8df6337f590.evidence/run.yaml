@@ -1,0 +1,11 @@
+evidence: '0.1'
+run_id: 4ef6f46a-b966-4153-b2de-b8df6337f590
+status: running
+title: testrun
+started: '2026-08-19T22:35:06.401Z'
+environment:
+  producer:
+    name: kane-cli
+    version: 0.8.4
+  origin: testrun
+  pid: 82540

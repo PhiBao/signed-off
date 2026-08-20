@@ -1,0 +1,48 @@
+{
+  "run_id": "replay",
+  "test_id": "test",
+  "objective": "On the catalogue page, confirm that at least one bouquet listing is visible to a visitor without signing in or opening the basket.",
+  "start_url": "",
+  "start_time": "2026-08-19T22:35:35.886718+00:00",
+  "config": {
+    "reasoning_provider": "replay",
+    "reasoning_model": "replay",
+    "vision_provider": "replay",
+    "vision_model": "replay",
+    "screen_width": 1920,
+    "screen_height": 993,
+    "max_steps": 2
+  },
+  "credits_consumed": 0.0,
+  "steps": [
+    {
+      "step": 1,
+      "duration_ms": 146.6,
+      "url": "http://localhost:4311/",
+      "status": "passed",
+      "step_file": "step_001.json",
+      "action_type": "analyze",
+      "action_target": "Checking whether at least one bouquet listing is present in the main content",
+      "success": true,
+      "method": "action"
+    },
+    {
+      "step": 2,
+      "duration_ms": 59.4,
+      "url": "http://localhost:4311/",
+      "status": "passed",
+      "step_file": "step_002.json",
+      "action_type": "assert",
+      "action_target": "at least one bouquet listing is visible to a visitor without signing in or openi",
+      "success": true,
+      "method": "assertion"
+    }
+  ],
+  "errors": [],
+  "end_time": "2026-08-19T22:35:36.102481+00:00",
+  "total_duration_ms": 214.61038800043752,
+  "final_status": "passed",
+  "final_url": "http://localhost:4311/",
+  "total_steps": 2,
+  "reason": "replay completed"
+}

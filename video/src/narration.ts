@@ -22,32 +22,29 @@ export const NARRATION = {
     'This is the moment Signed Off is built for. A freelancer submits a milestone, ' +
     "the client says it doesn't work, and neither of them has proof.",
 
-  init:
-    'So it starts from the document the client signed, not the code. Sixteen promises. ' +
-    "Which can be proven in a browser, which cannot — Sarah's inbox is out of band, so it says so — " +
-    'and seven things the contract never actually settled.',
+  document:
+    'So it starts from the document the client signed, rather than from the code. ' +
+    'Sixteen promises: which can be proven in a browser, which cannot, ' +
+    'and what the contract never actually settled.',
 
-  verify:
-    'Then it checks them against the real build. Real Chrome, real checkout, one sealed evidence pack. ' +
-    "Three verdicts, never two: proven, not proven, and couldn't check. " +
-    'A timed-out run and a broken checkout are different facts.',
+  terminal:
+    'This is a real session. Signed Off reads the sealed pack from the run that caught the bug, ' +
+    "and hands the coding agent the promise, the contract, and what the browser saw. " +
+    'The fix was one line — getDay returns zero for Sunday, never seven. ' +
+    'Kane then replays the same test against the fixed build, six steps, straight from cache. ' +
+    'The milestone is published, and the pack validates.',
 
-  handover:
-    'Sarah opens one link. No account, no install, no test names. Just each thing she asked for. ' +
-    "She expands one row and sees the browser's own reading — Sunday the twenty-third, selected — " +
-    "sitting next to the page's own promise that Sundays are unavailable. She sends it back.",
-
-  brief:
-    'What failed goes to the coding agent. Not a stack trace — the promise, ' +
-    'the contract it came from, and what the browser saw. ' +
-    'The agent finds it in one line: the code excluded weekday seven, but Sunday is zero.',
+  browser:
+    "This is what the client opens. No account, no install, no test names. " +
+    'She expands one row and sees the delivery field reading Sunday the twenty-third, ' +
+    "directly above the page's own promise that Sundays are unavailable.",
 
   green:
-    'Re-check. Passed steps replay from cache, so proving the milestone again cost eleven credits, ' +
-    'against roughly a hundred and eighty to author the suite. ' +
-    "That's what makes re-proving it after every fix affordable.",
+    'Re-proving the milestone cost eleven credits, against roughly a hundred and eighty ' +
+    "to author the suite, because passed steps replay from cache. That's what makes " +
+    'proving it again after every fix affordable.',
 
   accept:
-    'Sarah accepts, and her signature binds to the exact evidence she saw. ' +
+    'She accepts, and her signature binds to the exact evidence she saw. ' +
     'Anyone can validate that record without trusting us.',
 } as const;

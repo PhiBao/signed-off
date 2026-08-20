@@ -1,5 +1,13 @@
 import React from 'react';
-import { AbsoluteFill, Audio, interpolate, Sequence, staticFile, useCurrentFrame } from 'remotion';
+import {
+  AbsoluteFill,
+  Audio,
+  interpolate,
+  OffthreadVideo,
+  Sequence,
+  staticFile,
+  useCurrentFrame,
+} from 'remotion';
 import { Callout, Caption, Screen } from './components/Screen';
 import { Terminal, type TerminalLine } from './components/Terminal';
 import { SCENES, SCENE_ORDER, seconds } from './config';
@@ -384,6 +392,122 @@ const Brief: React.FC = () => {
 };
 
 // ---------------------------------------------------------------------------
+// 4. Start from the document
+// ---------------------------------------------------------------------------
+
+const DocumentScene: React.FC = () => (
+  <Stage>
+    <Backdrop />
+    <div style={{ display: 'grid', gap: 34, alignContent: 'center', height: '100%' }}>
+      <Caption
+        kicker="What it does"
+        title="It starts from the document the client signed."
+        body="Not from the code. Kane turns the scope into acceptance criteria, one test per scenario, every claim cited back to the line it came from."
+      />
+      <div style={{ display: 'grid', gap: 16, marginTop: 6 }}>
+        <Callout tone="proven" delay={seconds(3.6)} size={29}>
+          16 promises found in the scope
+        </Callout>
+        <Callout tone="unproven" delay={seconds(5.2)} size={29}>
+          1 of them cannot be proven in a browser — and it says so
+        </Callout>
+        <Callout delay={seconds(6.8)} size={29}>
+          7 things the contract never settled
+        </Callout>
+      </div>
+    </div>
+  </Stage>
+);
+
+// ---------------------------------------------------------------------------
+// 5 & 6. The real recordings
+// ---------------------------------------------------------------------------
+
+/** A full-frame screen recording with a small persistent label. */
+const Recording: React.FC<{
+  readonly src: string;
+  readonly label: string;
+  readonly note?: string;
+}> = ({ src, label, note }) => {
+  const frame = useCurrentFrame();
+  const opacity = interpolate(frame, [0, 12], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+
+  return (
+    <AbsoluteFill style={{ background: theme.paper, opacity }}>
+      {/* Inset so the label and caption sit in a margin rather than on top of
+          the recording, which was covering the first lines of output. */}
+      <div style={{ position: 'absolute', inset: 0, paddingTop: 78, paddingBottom: 124 }}>
+        <OffthreadVideo
+          src={src}
+          style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+        />
+      </div>
+
+      <div
+        style={{
+          position: 'absolute',
+          left: 46,
+          top: 20,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 12,
+          background: 'rgba(15,19,17,0.86)',
+          border: `1px solid ${theme.line}`,
+          borderRadius: 999,
+          padding: '10px 20px',
+        }}
+      >
+        <span
+          style={{ width: 9, height: 9, borderRadius: 999, background: theme.unproven }}
+          aria-hidden
+        />
+        <span style={{ font: `600 20px ${theme.fontSans}`, color: theme.ink, letterSpacing: 0.4 }}>
+          {label}
+        </span>
+      </div>
+
+      {note !== undefined && (
+        <div
+          style={{
+            position: 'absolute',
+            left: 46,
+            right: 46,
+            bottom: 24,
+            background: 'rgba(15,19,17,0.88)',
+            border: `1px solid ${theme.line}`,
+            borderRadius: 12,
+            padding: '14px 22px',
+            font: `400 23px/1.4 ${theme.fontSans}`,
+            color: theme.muted,
+          }}
+        >
+          {note}
+        </div>
+      )}
+    </AbsoluteFill>
+  );
+};
+
+const TerminalScene: React.FC = () => (
+  <Recording
+    src={staticFile('terminal.mp4')}
+    label="Real session · recorded terminal"
+    note="Signed Off reads the pack that caught the bug, briefs the agent, and Kane replays the fixed build from cache."
+  />
+);
+
+const BrowserScene: React.FC = () => (
+  <Recording
+    src={staticFile('browser.mp4')}
+    label="Real browser · what the client opens"
+    note="“selected text: Sunday 23 August” — directly above the page's own “Sundays are not available.”"
+  />
+);
+
+// ---------------------------------------------------------------------------
 // 8. green — replay
 // ---------------------------------------------------------------------------
 
@@ -473,10 +597,9 @@ const COMPONENTS = {
   hook: Hook,
   falsePass: FalsePass,
   problem: Problem,
-  init: Init,
-  verify: Verify,
-  handover: Handover,
-  brief: Brief,
+  document: DocumentScene,
+  terminal: TerminalScene,
+  browser: BrowserScene,
   green: Green,
   accept: Accept,
 } as const;

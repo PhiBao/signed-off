@@ -1,0 +1,10 @@
+{
+  "kind": "analyze",
+  "status": "passed",
+  "summary": "analyze: Checking whether each visible bouquet listing displays its price",
+  "duration_ms": 76.5,
+  "url": "http://localhost:4311/",
+  "action_id": "76a67b1d-8435-4fb1-885c-1f5fefb60cda",
+  "ordinal": 4,
+  "id": "2-1"
+}
